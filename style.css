@@ -3,19 +3,33 @@
 body{
     margin: 0;
 
-    background-color: #e9d8a6;
+    background-color: #00509d;
+
+    font-family: "Ubuntu";
 }
 
 header{
     height: 100px;
 
-    background-color: #0a9396;
-    color: #001219;
+    background-color: #00296b;
+    color: white;
 
-    font-family: "Ubuntu";
     font-size: 32px;
     text-align: center;
     align-content: center;
+}
+
+main{
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+li{
+    margin-bottom: 10px;
 }
 
 h1{
