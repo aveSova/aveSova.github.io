@@ -35,3 +35,7 @@ li{
 h1{
     margin: 0;
 }
+
+.hidden {
+    margin-top: 200%;
+}
