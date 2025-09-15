@@ -1,49 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
-body{
-    margin: 0;
-
-    background-color: #00509d;
-
-    font-family: "Ubuntu";
+body {
+  margin: 0;
+  font-family: "Ubuntu";
+  background-color: #00509d;
 }
 
-header{
-    height: 100px;
-
-    background-color: #00296b;
-    color: white;
-
-    font-size: 32px;
-    text-align: center;
-    align-content: center;
+header {
+  height: 100px;
+  font-size: 32px;
+  color: white;
+  text-align: center;
+  background-color: #00296b;
+  align-content: center;
 }
 
-main{
-    color: white;
+main {
+  color: white;
 }
 
-a{
-    text-decoration: none;
-    color: white;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-li{
-    margin-bottom: 10px;
+li {
+  margin-bottom: 10px;
 }
 
-h1{
-    margin: 0;
+h1 {
+  margin: 0;
 }
 
 .form {
-    background-color: #00296b;
+  background-color: #00296b;
 }
 
-.invisible{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    list-style-type: none;
-    font-size: 0;
+.invisible {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  list-style-type: none;
+  border: 0;
 }
