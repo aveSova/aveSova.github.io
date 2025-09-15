@@ -13,7 +13,7 @@
 
     <main>
         <ol>
-           <li><a href="http://kubsu.ru">абс. гиперссылка</a></li>
+           <!---<li><a href="http://kubsu.ru">абс. гиперссылка</a></li>
            <li><a href="https://kubsu.ru">абс. гиперссылка с протоколом</a></li> 
            <li><a href="http://kubsu.ru"><img src="images/Prikol.png" alt="Лого кубГУ"></a></li>
            <li><a href="">ссылка на главную страницу (на главной странице, ага)</a></li>
@@ -22,7 +22,40 @@
            <li><p>В этом тексте спрятана <a href="https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png">ссылка</a>, найдите её :)</p></li>
            <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">фрагмент страницы сайта</a></li>
            <li><a href="">ссылка с пустым href</a></li>
-           <li><a>ссылка без href</a></li>
+           <li><a>ссылка без href</a></li>--->
+            <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
+            <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
+            <li><a href="//kubsu.ru/index.html"><img src="images/Prikol.png" alt="Лого кубГУ"></a></li>
+            <li><a href="">сокращенную ссылку на внутреннюю страницу</a></li>
+            <li><a href="">сокращенную ссылку на главную страницу</a></li>
+            <li><a href="#meme">ссылку на фрагмент текущей страницы</a></li>
+            <li><a href="">ссылку с тремя параметрами в URL</a></li>
+            <li><a href="">ссылку с параметром id в URL</a></li>
+            <li><a href="./index.html">относительную на страницу в текущем каталоге</a></li>
+            <li><a href="/about/task.html">относительную на страницу в каталоге about</a></li>
+            <li class="invisible">туты пусто</li>
+            <li><a href="/about/task12/task12.html">здесь 12-й пункт атвичяю</a></li>
+            <li><p>В этом тексте спрятана <a href="https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png">ссылка</a>, найдите её :)</p></li>
+            <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">ссылку на фрагмент страницы стороннего сайта</a></li>
+            <li>
+                <map name="task15">
+                    <area shape="circle" coords="98,115,50" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример">
+                    <area shape="rect" coords="99,245,268,344" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример">
+                </map>
+                <img src="/images/ForTask.png" width="300" height="400" alt="задание 15" usemap="#task15">
+            </li>
+            <li><a href="">ссылку с пустым href</a></li>
+            <li><a>ссылку без href</a></li>
+            <li><a rel="nofollow" href="https://hub.kodland.org/project/112576">ссылку, по которой запрещен переход поисковикам</a></li>
+            <li><noindex><a href="https://hub.kodland.org/project/229679">запрещенную для индексации поисковиками</a></noindex></li>
+            <li> нумерованный список ссылок с подписями title
+                <ol>
+                    <li><a href="https://img.gazeta.ru/files3/686/21345686/1-pic_32ratio_600x400-600x400-58884.jpg" title="умный человек в очках скачать обои">ссылка 1</a></li>
+                    <li><a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" title="самая ожидаемая игра года">ссылка 2</a></li>
+                    <li><a href="https://htmlbook.ru/" title="чё-то умное">ссылка 3</a></li>
+                </ol>
+            </li>
+            <li><a href="ftp://Stanford:AB1C3@GRAVITYFALLS/diaries/3.pdf">ссылку на файл на сервере FTP с авторизацией</a></li>
         </ol>
         
         <ol class="form">
