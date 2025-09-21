@@ -2,26 +2,49 @@
 
 body {
   margin: 0;
+  align-content: center;
   font-family: "Ubuntu";
   background-color: #00509d;
+  color: white;
 }
 
 header {
   height: 100px;
   font-size: 32px;
-  color: white;
   text-align: center;
   background-color: #00296b;
   align-content: center;
 }
 
-main {
-  color: white;
-}
-
 a {
   text-decoration: none;
   color: white;
+}
+
+ol:nth-child(2n){
+  background-color: #00296b;
+}
+
+table{
+  border-collapse: collapse;
+  text-align: center;
+}
+
+caption{
+  text-align: center;
+}
+
+tr, th, td, table{
+  border: 2px solid white;
+  padding: 20px;
+}
+
+tr:nth-child(2n){
+  background-color: #00296b;
+}
+
+th{
+  background-color: #00296b;
 }
 
 li {
@@ -30,6 +53,10 @@ li {
 
 h1 {
   margin: 0;
+}
+
+.links, .tab, .form {
+  align-content: center;
 }
 
 .form {
