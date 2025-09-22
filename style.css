@@ -140,7 +140,7 @@ input[type="checkbox"], input[type="radio"]{
 .links a, li{
   height: 100px;
   align-content: center;
-  transition: background-color 1.5s ease-in-out;
+  transition: background-color 1.0s ease-in-out;
 }
 
 .links a:hover, footer a:hover{
