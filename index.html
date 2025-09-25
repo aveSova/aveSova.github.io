@@ -8,7 +8,7 @@
 </head>
 <body>
   <header id="start">
-    <img src="images/Logo.png" style="width: 160px; height: 160px;" alt="logo">
+    <img src="images/Logo.png" style="width: 12.5vw; height: 12.5vw;" alt="logo">
     <h1>Сайт<br> "ЭЭЭЭЭЭКСПЕРИМЕНТЫ"</h1>
     <div style="display: block;">
       <h4 style="margin: 0; padding-top: 20%;">Навигация по странице</h4>
@@ -24,8 +24,8 @@
       <ol>
         <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
         <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
-        <li style="height: 940px;"><a href="//kubsu.ru/index.html" class="image"><img src="images/Prikol.png" 
-          style="width: 641px; height: 940px;" alt="Лого кубГУ"></a></li>
+        <li style="max-height: 940px; height: auto;"><a href="//kubsu.ru/index.html" class="image"><img src="images/Prikol.png" 
+          style="--element-width: 100%; width: var(--element-width); height: calc(var(--element-width)*1,46875)px; max-width: 441px;" alt="Лого кубГУ"></a></li>
         <li><a href="https://clck.ru/3PDHiw">сокращенную ссылку на внутреннюю страницу</a></li>
         <li><a href="https://clck.ru/3PDGyG">сокращенную ссылку на главную страницу</a></li>
         <li><a href="#meme">ссылку на фрагмент текущей страницы</a></li>
@@ -40,25 +40,25 @@
         <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">
           ссылку на фрагмент страницы стороннего сайта</a></li>
         <li class="image">
-          <map name="task15">
-            <area shape="circle" coords="98,115,50" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" 
+          <map name="task15" style="--element-width: 100%; --element-height:calc(var(--element-width)*4/3)px; max-width: 300px;">
+            <area shape="circle" coords="calc(98*var(--element-width)),calc(115*var(--element-width)),calc(50*var(--element-width))" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" 
             alt="круглый идиот">
-            <area shape="rect" coords="99,245,268,344" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" 
+            <area shape="rect" coords="calc(99*var(--element-width)),calc(245*var(--element-width)),calc(268*var(--element-width)),calc(344*var(--element-width))" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" 
             alt="квадратные глаза">
           </map>
-          <img src="/images/ForTask.png" usemap="#task15" style="width: 300px; height: 400px" alt="задание 15">
+          <img src="/images/ForTask.png" usemap="#task15" style="width: var(--element-width); height: var(--element-height)" alt="задание 15">
         </li>
         <li><a href="">ссылку с пустым href</a></li>
         <li><a>ссылку без href</a></li>
         <li><a rel="nofollow" href="https://hub.kodland.org/project/112576">ссылку, по которой запрещен переход поисковикам</a></li>
         <li> <!--noindex--> <a href="https://hub.kodland.org/project/229679">запрещенную для индексации поисковиками</a> <!--/noindex--> </li>
-        <li> нумерованный список ссылок с подписями title
+        <li style="height: auto;"> нумерованный список ссылок с подписями title
           <ol>
-            <li style="height: 24px;"><a href="https://img.gazeta.ru/files3/686/21345686/1-pic_32ratio_600x400-600x400-58884.jpg" 
-              title="умный человек в очках скачать обои" style="height: 24px;">ссылка 1</a></li>
-            <li style="height: 24px;"><a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" 
-              title="самая ожидаемая игра года" style="height: 24px;">ссылка 2</a></li>
-            <li style="height: 24px;"><a href="https://htmlbook.ru/" title="чё-то умное" style="height: 24px;">ссылка 3</a></li>
+            <li style="height: 3vw;"><a style="height: inherit;" href="https://img.gazeta.ru/files3/686/21345686/1-pic_32ratio_600x400-600x400-58884.jpg" 
+              title="умный человек в очках скачать обои">ссылка 1</a></li>
+            <li style="height: 3vw;"><a style="height: inherit;" href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" 
+              title="самая ожидаемая игра года">ссылка 2</a></li>
+            <li style="height: 3vw;"><a style="height: inherit;" href="https://htmlbook.ru/" title="чё-то умное">ссылка 3</a></li>
           </ol>
         </li>
         <li><a href="ftp://Stanford:AB1C3@GRAVITYFALLS/diaries/3.pdf">ссылку на файл на сервере FTP с авторизацией</a></li>
@@ -132,7 +132,7 @@
         <li><p>М<input type="radio" name="gender">Ж<input type="radio" name="gender"></p></li>
         <li><input type="tel" placeholder="телефон"></li>
         <li><textarea placeholder="О себе"></textarea></li>
-        <li> Любимый ЯП:
+        <li style="height: auto;"> Любимый ЯП:
           <select multiple>
             <option value="Pascal">Pascal</option>
             <option value="C">C</option>
@@ -147,12 +147,12 @@
             <option value="Scala">Scala</option>
           </select>
         </li>
-        <li><p>С контрактом на продажу души ознакомлен(а)<input type="checkbox"></p>
+        <li><p>С контрактом на продажу души ознакомлен(а)<input type="checkbox"></p></li>
         <button type="button">Сохранить и отправить</button>
       </ol>
     </div>
 
-    <img id="meme" src="images/shtirlits.jpg" style="width: 1200px; height: 800px;" alt="Анекдот про Штирлица (это база)">
+    <img id="meme" src="images/shtirlits.jpg" style="--element-width: 100%; width: var(--element-width); height: calc(var(--element-width)*2/3)px; max-width: 1200px;" alt="Анекдот про Штирлица (это база)">
   </main>
   <footer>
     <div style="display: block; text-align: center;">

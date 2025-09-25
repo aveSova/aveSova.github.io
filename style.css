@@ -2,38 +2,38 @@
 
 body{
   margin: 0;
-  align-content: center;
   font-family: "Ubuntu";
   background-color: #00509d;
   color: white;
 }
 
 header{
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  justify-items: center;
+  font-size: 1.75vw;
   align-items: center;
-  height: auto;
-  font-size: 32px;
   text-align: center;
   background-color: #00296b;
-  align-content: center;
+}
+
+h1{
+  white-space: wrap;
 }
 
 footer{
-  flex-shrink: 0;
+  
   width: 100%;
-  display: flex;
   bottom: 0;
-  justify-content: space-between;
   background-color: #00296b;
 }
 
 footer a{
-  height: 60px;
+  height: 1px;
   width: auto;
 }
 
-footer p{
+footer p, h1{
   margin: 0;
 }
 
@@ -42,7 +42,7 @@ footer ul{
 }
 
 footer li{
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 footer h6{
@@ -69,7 +69,6 @@ ul, ol{
 
 ul li{
   padding-right: 10px;
-  height: auto;
 }
 
 table{
@@ -94,8 +93,10 @@ th{
   background-color: #00296b;
 }
 
-h1{
-  margin: 0;
+textarea, input, button, option{
+  max-width: 20%;
+  height: 2vw;
+  font-size: 1vw;
 }
 
 textarea{
@@ -107,11 +108,14 @@ textarea{
   max-height: 100%;
 }
 
-textarea, input{
-  font-size: 18px;
+button{
+  max-width: 100%;
+  font-size: 1vw;
 }
 
 input[type="checkbox"], input[type="radio"]{
+  max-width: 1vw;
+  height: 1vw;
   accent-color: #00509d;
 }
 
@@ -123,7 +127,7 @@ input[type="checkbox"], input[type="radio"]{
 
 #links{
   justify-content: start;
-  font-size: 24px;
+  font-size: 1.5vw;
 }
 
 #links li:nth-child(2n+1){
@@ -137,7 +141,7 @@ input[type="checkbox"], input[type="radio"]{
 }
 
 #links a, li{
-  height: 100px;
+  height: 5vw;
   align-content: center;
   transition: background-color 1.0s ease-in-out;
 }
@@ -152,15 +156,15 @@ input[type="checkbox"], input[type="radio"]{
 }
 
 #form{
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 1vw;
   background-color: #00296b;
-  width: 25%;
 }
 
 #meme{
   display: block;
-  margin-left: auto; 
+  margin-left: auto;
   margin-right: auto;
 }
 
