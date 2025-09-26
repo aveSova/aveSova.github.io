@@ -17,6 +17,10 @@ header{
   background-color: #00296b;
 }
 
+nav{
+  display: block;
+}
+
 h1{
   white-space: wrap;
 }
@@ -74,28 +78,6 @@ ul li{
   padding-right: 10px;
 }
 
-table{
-  border-collapse: collapse;
-  text-align: center;
-}
-
-caption{
-  text-align: center;
-}
-
-tr, th, td, table{
-  border: 2px solid white;
-  padding: 20px;
-}
-
-tr:nth-child(2n){
-  background-color: #00296b;
-}
-
-th{
-  background-color: #00296b;
-}
-
 textarea, input, button, option{
   max-width: 20%;
   height: 2vw;
@@ -122,6 +104,29 @@ input[type="checkbox"], input[type="radio"]{
   accent-color: #00509d;
 }
 
+table{
+  border-collapse: collapse;
+  text-align: center;
+}
+
+caption{
+  text-align: center;
+}
+
+tr, th, td, table{
+  border: 2px solid white;
+  padding: 1vw;
+  font-size: 100%;
+}
+
+tr:nth-child(2n){
+  background-color: #00296b;
+}
+
+th{
+  background-color: #00296b;
+}
+
 #links, #tab, #form{
   display: flex;
   justify-content: center;
@@ -130,7 +135,7 @@ input[type="checkbox"], input[type="radio"]{
 
 #links{
   justify-content: start;
-  font-size: 1.5vw;
+  font-size: 2vw;
 }
 
 #links li:nth-child(2n+1){
@@ -177,4 +182,28 @@ input[type="checkbox"], input[type="radio"]{
   font-size: 0;
   list-style-type: none;
   border: 0;
+}
+
+@media (width <= 768px){
+  header{
+    display: block;
+  }
+
+  header h4{
+    display: none;
+  }
+
+  header ul{
+    display: flex;
+    font-size: 3vw;
+    justify-content: space-around;
+  }
+
+  header li{
+    padding: 0;
+  }
+
+  nav, header ul{
+    width: 100%;
+  }  
 }
