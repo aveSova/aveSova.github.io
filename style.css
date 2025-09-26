@@ -188,6 +188,14 @@ th{
   border: 0;
 }
 
+.atab{
+  display: block;
+}
+
+.amobtab{
+  display: none;
+}
+
 @media (width <= 768px){
   header{
     display: block;
@@ -278,5 +286,13 @@ th{
 
   #form p{
     margin: 0;
+  }
+
+  .atab{
+    display: none;
+  }
+
+  .amobtab{
+    display: flex;
   }
 }
