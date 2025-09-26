@@ -22,27 +22,30 @@ h1{
 }
 
 footer{
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   bottom: 0;
   background-color: #00296b;
 }
 
 footer a{
-  height: 1px;
+  text-align: center;
+  height: 1fr;
   width: auto;
 }
 
-footer p, h1{
+footer p, h6{
   margin: 0;
 }
 
 footer ul{
-  margin-left: 30px;
+  margin-left: 0;
 }
 
 footer li{
-  margin-top: 1px;
+  height: auto;
+  margin-top: 2vw;
 }
 
 footer h6{
