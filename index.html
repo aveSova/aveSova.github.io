@@ -24,7 +24,8 @@
       <ol>
         <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
         <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
-        <li style="max-height: 940px; height: auto;"><a href="//kubsu.ru/index.html" class="image"><img src="images/Prikol.png" style="--element-width: 100%; width: var(--element-width); height: calc(abs(var(--element-width)*1,46875))px; max-width: 441px;" alt="Лого кубГУ"></a></li>
+        <li style="max-height: 940px; height: auto;"><a href="//kubsu.ru/index.html" class="image"><img src="images/Prikol.png" 
+          style="--element-width: 100%; width: var(--element-width); height: round(calc(var(--element-width)*1,46875) nearest 2px)px; max-width: 441px;" alt="Лого кубГУ"></a></li>
         <li><a href="https://clck.ru/3PDHiw">сокращенную ссылку на внутреннюю страницу</a></li>
         <li><a href="https://clck.ru/3PDGyG">сокращенную ссылку на главную страницу</a></li>
         <li><a href="#meme">ссылку на фрагмент текущей страницы</a></li>
@@ -39,9 +40,11 @@
         <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">
           ссылку на фрагмент страницы стороннего сайта</a></li>
         <li class="image">
-          <map name="task15" style="--element-width: 100%; --element-height:calc(abs(var(--element-width)*4/3))px; max-width: 300px;">
-            <area shape="circle" coords="calc(abs(98*var(--element-width))),calc(abs(115*var(--element-width))),calc(abs(50*var(--element-width)))" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="круглый идиот">
-            <area shape="rect" coords="calc(abs(99*var(--element-width))),calc(abs(245*var(--element-width))),calc(abs(268*var(--element-width))),calc(abs(344*var(--element-width)))" href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="квадратные глаза">
+          <map name="task15" style="--element-width: 100%; --element-height:calc(var(--element-width)*4/3)px; max-width: 300px;">
+            <area shape="circle" coords="calc(98*var(--element-width)),calc(115*var(--element-width)),calc(50*var(--element-width))" 
+              href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="круглый идиот">
+            <area shape="rect" coords="calc(99*var(--element-width)),calc(245*var(--element-width)),calc(268*var(--element-width)),calc(344*var(--element-width))" 
+              href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="квадратные глаза">
           </map>
           <img src="/images/ForTask.png" usemap="#task15" style="width: var(--element-width); height: var(--element-height)" alt="задание 15">
         </li>
