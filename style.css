@@ -127,7 +127,7 @@ th{
   background-color: #00296b;
 }
 
-#links, #tab, #form{
+#links, #tab, #mobtab, #form{
   display: flex;
   justify-content: center;
   margin-top: 10px;
@@ -161,6 +161,10 @@ th{
 
 #links .image{
   height: auto;
+}
+
+#mobtab{
+  display: none;
 }
 
 #form{
@@ -205,5 +209,17 @@ th{
 
   nav, header ul{
     width: 100%;
-  }  
+  }
+
+  #tab{
+    display: none;
+  }
+
+  #mobtab{
+    display: flex;
+  }
+
+  tr, th, td, table{
+    font-size: 80%;
+  }
 }
