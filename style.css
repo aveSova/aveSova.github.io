@@ -8,13 +8,30 @@ body{
 }
 
 header{
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  display: block;
   justify-items: center;
   font-size: 1.75vw;
   align-items: center;
   text-align: center;
   background-color: #00296b;
+}
+
+header h4{
+  display: none;
+}
+
+nav, header ul{
+  width: 100%;
+}
+
+header ul{
+  display: flex;
+  font-size: 3vw;
+  justify-content: space-around;
+}
+
+header li{
+  padding: 0;
 }
 
 nav{
@@ -57,6 +74,11 @@ footer h6{
   text-align: end;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+}
+
 a{
   justify-content: center;
   text-decoration: none;
@@ -79,28 +101,29 @@ ul li{
 }
 
 textarea, input, button, option{
-  max-width: 20%;
-  height: 2vw;
-  font-size: 1vw;
+  max-width: 100%;
+  height: 4vw;
+  font-size: 4vw;
 }
 
 textarea{
   border: 0;
   padding: 0;
-  min-width: 20%;
+  min-width: 80%;
+  min-height: 80%;
   max-width: 100%;
-  min-height: 20%;
   max-height: 100%;
 }
 
 button{
+  height: 10vw;
   max-width: 100%;
-  font-size: 1vw;
+  font-size: 4vw;
 }
 
 input[type="checkbox"], input[type="radio"]{
-  max-width: 1vw;
-  height: 1vw;
+  max-width: 4vw;
+  height: 4vw;
   accent-color: #00509d;
 }
 
@@ -116,7 +139,7 @@ caption{
 tr, th, td, table{
   border: 2px solid white;
   padding: 1vw;
-  font-size: 100%;
+  font-size: 80%;
 }
 
 tr:nth-child(2n){
@@ -135,7 +158,7 @@ th{
 
 #links{
   justify-content: start;
-  font-size: 2vw;
+  font-size: 4vw;
 }
 
 #links li:nth-child(2n+1){
@@ -149,9 +172,14 @@ th{
 }
 
 #links a, li{
-  height: 5vw;
   align-content: center;
-  transition: background-color 1.0s ease-in-out;
+  height: 8vw;
+  transition: background-color 1s;
+}
+
+#links li{
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #links a:hover, footer a:hover{
@@ -163,15 +191,34 @@ th{
   height: auto;
 }
 
-#mobtab{
+#tab{
   display: none;
 }
 
+#mobtab{
+  display: flex;
+  order: -1;
+}
+
 #form{
-  margin-left: 20%;
-  margin-right: 20%;
-  font-size: 1vw;
+  margin:0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 4vw;
   background-color: #00296b;
+}
+
+#form br{
+  margin-bottom: 2vw;
+}
+
+#form li{
+  margin-top: 2vw;
+}
+
+#form p{
+  margin: 0;
 }
 
 #meme{
@@ -189,110 +236,99 @@ th{
 }
 
 .atab{
-  display: block;
-}
-
-.amobtab{
   display: none;
 }
 
-@media (width <= 768px){
+.amobtab{
+  display: block;
+}
+
+@media (width > 768px){
+
   header{
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
   }
 
   header h4{
-    display: none;
-  }
-
-  header ul{
-    display: flex;
-    font-size: 3vw;
-    justify-content: space-around;
+    display: block;
   }
 
   header li{
-    padding: 0;
-  }
-
-  nav, header ul{
-    width: 100%;
+    padding-right: 1vw;
   }
 
   #links{
-    font-size: 4vw;
+    font-size: 2vw;
   }
 
   #links a, li{
-    height: 8vw;
-    align-content: center;
-    transition: background-color 1s;
+    height: 5vw;
+    transition: background-color 1.0s ease-in-out;
   }
 
   #links li{
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 0;
   }
 
   #tab{
-    display: none;
-  }
-
-  #mobtab{
     display: flex;
   }
 
+  #mobtab{
+    display: none;
+  }
+
   tr, th, td, table{
-    font-size: 80%;
+    font-size: 100%;
   }
 
   textarea, input, button, option{
-    max-width: 100%;
-    height: 4vw;
-    font-size: 4vw;
+    max-width: 20%;
+    height: 2vw;
+    font-size: 1vw;
   }
 
   button{
-    height: 10vw;
+    height: auto;
   }
 
   textarea{
-    min-width: 80%;
-    min-height: 80%;
+    min-width: 20%;
+    min-height: 20%;
   }
 
   input[type="checkbox"], input[type="radio"]{
-    max-width: 4vw;
-    height: 4vw;
-    accent-color: #00509d;
+    max-width: 1vw;
+    height: 1vw;
   }
 
   #form{
-    margin:0;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 100%;
-    font-size: 4vw;
+    margin: auto;
+    width: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 1vw;
     background-color: #00296b;
   }
 
   #form br{
-    margin-bottom: 2vw;
+    margin-bottom: auto;
   }
 
   #form li{
-    margin-top: 2vw;
+    margin-top: auto;
   }
 
   #form p{
-    margin: 0;
+    margin: auto;
   }
 
   .atab{
-    display: none;
+    display: block;
   }
 
   .amobtab{
-    display: flex;
+    display: none;
   }
 }
