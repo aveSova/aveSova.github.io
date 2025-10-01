@@ -1,0 +1,236 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+        <header id="start">
+          <img src="images/Logo.png" style="width: 12.5vw; height: 12.5vw;" alt="logo" />
+          <h1>Сайт<br/>"ЭЭЭЭЭЭКСПЕРИМЕНТЫ"</h1>
+          <nav>
+              <h4 style="margin: 0; padding-top: 20%;">Навигация по странице</h4>
+              <ul style="display: inline-flex; width: 100%;">
+                <li><a href="#links">Ссылки</a></li>
+                <li><a href="#tab" class="atab">Таблица</a> <a href="#mobtab" class="amobtab">Таблица</a></li>
+                <li style="padding-right: 0;"><a href="#form">Форма</a></li>
+              </ul>
+          </nav>
+        </header>
+        <main>
+          <div id="links">
+            <ol>
+              <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
+              <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
+              <li style="max-height: 940px; height: auto;"><a href="//kubsu.ru/index.html" class="image"><img src="images/Prikol.png" 
+                style="width: 100%; max-width: 441px;" alt="Лого кубГУ" /></a></li>
+              <li><a href="https://clck.ru/3PDHiw">сокращенную ссылку на внутреннюю страницу</a></li>
+              <li><a href="https://clck.ru/3PDGyG">сокращенную ссылку на главную страницу</a></li>
+              <li><a href="#meme">ссылку на фрагмент текущей страницы</a></li>
+              <li><a href="https://avesova.github.io?param1=1&param2=2&param3=3">ссылку с тремя параметрами в URL</a></li>
+              <li><a href="https://avesova.github.io?param=#meme">ссылку с параметром id в URL</a></li>
+              <li><a href="./index.html">относительную на страницу в текущем каталоге</a></li>
+              <li><a href="/about/task.html">относительную на страницу в каталоге about</a></li>
+              <li><a href="/about/task12/task12.html">здесь 12-й пункт атвичяю</a></li>
+              <li><p>В этом тексте спрятана <a href="https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png" 
+                style="display: inline-flex; width: auto; height: auto;">ссылка</a>, найдите её :)</p></li>
+              <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">
+                ссылку на фрагмент страницы стороннего сайта</a></li>
+              <li class="image">
+                <map name="task15" style="width: 100%; max-width: 300px;">
+                  <area shape="circle" coords="98,115,50" 
+                    href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="круглый идиот" />
+                  <area shape="rect" coords="99,245,268,344" 
+                    href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="квадратные глаза" />
+                </map>
+                <img src="/images/ForTask.png" usemap="#task15" style="width: 100%; max-width: 300px;" alt="задание 15" />
+              </li>
+              <li><a href="">ссылку с пустым href</a></li>
+              <li><a>ссылку без href</a></li>
+              <li><a rel="nofollow" href="https://hub.kodland.org/project/112576">ссылку, по которой запрещен переход поисковикам</a></li>
+              <li><noindex><a href="https://hub.kodland.org/project/229679">запрещенную для индексации поисковиками</a></noindex></li>
+              <li style="height: auto;"> нумерованный список ссылок с подписями title
+                <ol>
+                  <li style="height: 3vw;"><a style="height: inherit;" href="https://img.gazeta.ru/files3/686/21345686/1-pic_32ratio_600x400-600x400-58884.jpg" 
+                    title="умный человек в очках скачать обои">ссылка 1</a></li>
+                  <li style="height: 3vw;"><a style="height: inherit;" href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" 
+                    title="самая ожидаемая игра года">ссылка 2</a></li>
+                  <li style="height: 3vw;"><a style="height: inherit;" href="https://htmlbook.ru/" title="чё-то умное">ссылка 3</a></li>
+                </ol>
+              </li>
+              <li><a href="ftp://Stanford:AB1C3@GRAVITYFALLS/diaries/3.pdf">ссылку на файл на сервере FTP с авторизацией</a></li>
+            </ol>
+          </div>
+          
+          <div id="tab">
+            <table>
+              <caption>Таблица несуществующих заказов</caption>
+              <tr>
+                <th rowspan="2">№</th>
+                <th colspan="3">Основное по заказу</th>
+                <th rowspan="2">Оплата (в $)</th>
+                <th rowspan="2">Дедлайн</th>
+                <th rowspan="2">Торопят?</th>
+                <th rowspan="2">Статус</th>
+              </tr>
+              <tr>
+                <th>Тип</th>
+                <th>Размер (по наитию)<br/></th>
+                <th>Наличие референса<br/></th>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>UE project</td>
+                <td>ОГРОМНЫЙ</td>
+                <td>Нет</td>
+                <td>888</td>
+                <td>Завтра</td>
+                <td>Нет</td>
+                <td>Отменён</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Unity project</td>
+                <td>Средний</td>
+                <td>Да</td>
+                <td>0</td>
+                <td>Вчера</td>
+                <td>Да</td>
+                <td>не начат</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>HTML/CSS page</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>обсуждается</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>HTML/CSS page</td>
+                <td>Маленький</td>
+                <td>да</td>
+                <td>0</td>
+                <td>28.09.2025</td>
+                <td>нет</td>
+                <td>Выполнен</td>
+              </tr>
+            </table>
+          </div>
+
+          <div id="mobtab">
+            <table>
+              <caption>Таблица несуществующих заказов</caption>
+              <tr>
+                <th colspan="2">№</th>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <th rowspan="3">Основное по заказу</th>
+                <th>Тип</th>
+                <td>UE project</td>
+                <td>Unity project</td>
+                <td>HTML/CSS page</td>
+                <td>HTML/CSS page</td>
+              </tr>
+              <tr>
+                <th>Наличие референса<br/></th>
+                <td>Нет</td>
+                <td>Да</td>
+                <td>-</td>
+                <td>да</td>
+              </tr>
+              <tr>
+                <th>Размер (по наитию)<br/></th>
+                <td>ОГРОМНЫЙ</td>
+                <td>Средний</td>
+                <td>-</td>
+                <td>Маленький</td>
+              </tr>
+              <tr>
+                <th colspan="2">Оплата (в $)</th>
+                <td>888</td>
+                <td>0</td>
+                <td>-</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th colspan="2">Дедлайн</th>
+                <td>Завтра</td>
+                <td>Вчера</td>
+                <td>-</td>
+                <td>28.09.2025</td>
+              </tr>
+              <tr>
+                <th colspan="2">Торопят?</th>
+                <td>Нет</td>
+                <td>Да</td>
+                <td>-</td>
+                <td>нет</td>
+              </tr>
+              <tr>
+                <th colspan="2">Статус</th>
+                <td>Отменён</td>
+                <td>не начат</td>
+                <td>обсуждается</td>
+                <td>Выполнен</td>
+              </tr>
+            </table>
+          </div>
+
+          <div id="form">
+            <ol>
+              <li style="height: auto"> Дата рождения:<br/> <input type="date"/></li>
+              <li><input type="text" placeholder="ФИО" /></li>
+              <li><input type="email" placeholder="почта" /></li>
+              <li><p>М<input type="radio" name="gender" />Ж<input type="radio" name="gender" /></p></li>
+              <li><input type="tel" placeholder="телефон" /></li>
+              <li><textarea placeholder="О себе"></textarea></li>
+              <li style="height: auto;"> Любимый ЯП:
+                <select multiple>
+                  <option value="Pascal">Pascal</option>
+                  <option value="C">C</option>
+                  <option value="C++">C++</option>
+                  <option value="JS">JS</option>
+                  <option value="PHP">PHP</option>
+                  <option value="Python">Python</option>
+                  <option value="Java">Java</option>
+                  <option value="Haskel">Haskel</option>
+                  <option value="Clojure">Clojure</option>
+                  <option value="Prolog">Prolog</option>
+                  <option value="Scala">Scala</option>
+                </select>
+              </li>
+              <li><p>С контрактом на продажу души ознакомлен(а)<input type="checkbox" /></p></li>
+              <li style="height: auto"><button type="button">Сохранить и отправить</button></li>
+            </ol>
+          </div>
+
+          <img id="meme" src="images/i.jpeg" style="width: 100vw; height: auto; max-width: 500px;" alt="meme" />
+        </main>
+        <footer>
+          <div style="display: block; text-align: left; margin-left: 2vw; margin-top: 1vw; margin-bottom: 1vw">
+            <p>Контакты:</p>
+            <ul>
+              <li><p>+79184592099</p></li>
+              <li><a href="https://t.me/aveSova">Telegram</a></li>
+              <li><a href="https://vk.com/sova_seva">ВКонтакте</a></li>
+            </ul>
+          </div>
+          <a style="border: 2px solid white; align-content: center;" href="#start">Вернуться в начало</a>
+          <h6>(с) Гончар Всеволод Денисович 2025</h6>
+        </footer>
+    </>
+  )
+}
+
+export default App
