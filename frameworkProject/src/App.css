@@ -43,7 +43,7 @@ h1{
 }
 
 footer{
-  position: absolute;
+  position: fixed;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
@@ -53,7 +53,7 @@ footer{
 
 footer a{
   text-align: center;
-  height: 1fr;
+  height: 8vw;
   width: auto;
 }
 
@@ -67,7 +67,7 @@ footer ul{
 
 footer li{
   height: auto;
-  margin-top: 2vw;
+  margin-top: 1vw;
 }
 
 footer h6{
