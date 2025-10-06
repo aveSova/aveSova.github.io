@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import TableOfOrder from './Table';
 import Links from './Links';
@@ -21,47 +20,7 @@ function App() {
       <main>
           <div id="links">
             <Links />
-            <ol>
-              <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
-              <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
-              <li style={{height: 'auto', maxHeight: '940px'}}><a href="//kubsu.ru/index.html" style={{height: 'auto'}}><img src="./src/assets/Prikol.png" 
-                style={{width: '100vw', maxWidth: '441px'}} alt="Лого кубГУ" /></a></li>
-              <li><a href="https://clck.ru/3PDHiw">сокращенную ссылку на внутреннюю страницу</a></li>
-              <li><a href="https://clck.ru/3PDGyG">сокращенную ссылку на главную страницу</a></li>
-              <li><a href="#meme">ссылку на фрагмент текущей страницы</a></li>
-              <li><a href="https://avesova.github.io/frameworkProject?param1=1&param2=2&param3=3">ссылку с тремя параметрами в URL</a></li>
-              <li><a href="https://avesova.github.io/frameworkProject?param=#meme">ссылку с параметром id в URL</a></li>
-              <li><a href="/index.html">относительную на страницу в текущем каталоге</a></li>
-              <li><a href="/about/task.html">относительную на страницу в каталоге about</a></li>
-              <li><a href="/about/task12/task12.html">здесь 12-й пункт атвичяю</a></li>
-              <li><p>В этом тексте спрятана <a href="https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png" 
-                style={{display: 'inline-flex', width: 'auto', height: 'auto'}}>ссылка</a>, найдите её :)</p></li>
-              <li><a href="https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5">
-                ссылку на фрагмент страницы стороннего сайта</a></li>
-              <li style={{height: 'auto'}}>
-                <map name="task15" style={{width: '100%', maxWidth: '300px'}}>
-                  <img src="./src/assets/ForTask.png" alt="задание 15" style={{width: '100%', maxWidth: '300px'}} />
-                  <area shape="circle" coords="98,115,50" 
-                    href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="круглый идиот" />
-                  <area shape="rect" coords="99,245,268,344" 
-                    href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="квадратные глаза" />
-                </map>
-              </li>
-              <li><a href="">ссылку с пустым href</a></li>
-              <li><a>ссылку без href</a></li>
-              <li><a rel="nofollow" href="https://hub.kodland.org/project/112576">ссылку, по которой запрещен переход поисковикам</a></li>
-              <li><noindex><a href="https://hub.kodland.org/project/229679">запрещенную для индексации поисковиками</a></noindex></li>
-              <li style={{height: 'auto'}}> нумерованный список ссылок с подписями title
-                <ol>
-                  <li style={{height: '3wv'}}><a style={{height: 'inherit'}} href="https://img.gazeta.ru/files3/686/21345686/1-pic_32ratio_600x400-600x400-58884.jpg" 
-                    title="умный человек в очках скачать обои">ссылка 1</a></li>
-                  <li style={{height: '3wv'}}><a style={{height: 'inherit'}} href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" 
-                    title="самая ожидаемая игра года">ссылка 2</a></li>
-                  <li style={{height: '3wv'}}><a style={{height: 'inherit'}} href="https://htmlbook.ru/" title="чё-то умное">ссылка 3</a></li>
-                </ol>
-              </li>
-              <li><a href="ftp://Stanford:AB1C3@GRAVITYFALLS/diaries/3.pdf">ссылку на файл на сервере FTP с авторизацией</a></li>
-            </ol>
+            
           </div>
           
           <div id="tab">

@@ -71,12 +71,7 @@ const TableOfOrder: React.FC = () => (
         },
       }}
     >
-    <Table<DataType> dataSource={data} pagination={false}  rowClassName={(record, index) => {
-        if (index === undefined) return '';
-        return index % 2 === 0 ? 'even-row' : '';}}
-        onRow={() => ({
-        style: { cursor: 'default' },
-      })}>
+    <Table<DataType> dataSource={data} pagination={false}  >
       <ColumnGroup title="Основное по заказу">
         <Column title="Тип" dataIndex="type" key="type" />
         <Column title="Размер (по наитию)" dataIndex="size" key="size" />
