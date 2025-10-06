@@ -7,6 +7,14 @@ body{
   color: white;
 }
 
+.image-link{
+  height: 940px;
+}
+
+.link-image{
+  height: auto;
+}
+
 header{
   display: block;
   justify-items: center;
@@ -242,6 +250,10 @@ th{
 
 .amobtab{
   display: block;
+}
+
+.even-row{
+  background-color: #00509d;
 }
 
 @media (width > 768px){

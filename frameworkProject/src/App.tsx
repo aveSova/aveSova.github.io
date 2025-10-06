@@ -1,61 +1,7 @@
+import React from 'react';
 import './App.css';
-import { Space, Table, Tag, type CheckboxRef } from "antd";
-
-const { Column, ColumnGroup } = Table;
-
-interface DataType {
-  num: React.Key;
-  type: string;
-  size: string;
-  reference: string;
-  paycheck: number;
-  deadline: string;
-  hurry: string;
-  status: string;
-}
-
-const data: DataType[] = [
-  {
-    num: '1',
-    type: 'UE project',
-    size: 'ОГРОМНЫЙ',
-    reference: 'нет',
-    paycheck: 888,
-    deadline: 'завтра',
-    hurry: 'нет',
-    status: 'отменён',
-  },
-  {
-    num: '2',
-    type: 'Unity project',
-    size: 'средний',
-    reference: 'да',
-    paycheck: 0,
-    deadline: 'вчера',
-    hurry: 'да',
-    status: 'не начат',
-  },
-  {
-    num: '3',
-    type: 'HTML/CSS',
-    size: '-',
-    reference: '-',
-    paycheck: -1,
-    deadline: '-',
-    hurry: 'нет',
-    status: 'обсуждается',
-  },
-  {
-    num: '4',
-    type: 'HTML/CSS',
-    size: 'Маленький',
-    reference: 'да',
-    paycheck: 0,
-    deadline: '05.10.2025',
-    hurry: 'нет',
-    status: 'выполнен',
-  }
-]
+import TableOfOrder from './Table';
+import Links from './Links';
 
 function App() {
   return (
@@ -74,6 +20,7 @@ function App() {
       </header>
       <main>
           <div id="links">
+            <Links />
             <ol>
               <li><a href="http://kubsu.ru/index.html">абсолютную гиперссылку на главную страницу сайта kubsu.ru</a></li>
               <li><a href="https://kubsu.ru/index.html">абсолютную на главную сайта kubsu.ru в протоколе https</a></li>
@@ -118,17 +65,7 @@ function App() {
           </div>
           
           <div id="tab">
-            <Table<DataType> dataSource={data}>
-              <ColumnGroup title="Основное по заказу">
-                <Column title="Тип" dataIndex="type" key="type" />
-                <Column title="Размер (по наитию)" dataIndex="size" key="size" />
-                <Column title="Наличие Референса" dataIndex="reference" key="reference" />
-              </ColumnGroup>
-              <Column title="Оплата (в $)" dataIndex="paycheck" key="paycheck"/>
-              <Column title="Дедлайн" dataIndex="deadline" key="deadline"/>
-              <Column title="Торопят?" dataIndex="hurry" key="hurry"/>
-              <Column title="Статус" dataIndex="status" key="status"/>
-            </Table>
+            <TableOfOrder />
           </div>
 
           <div id="mobtab">
