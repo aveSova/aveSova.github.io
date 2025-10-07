@@ -1,12 +1,12 @@
 import './App.css';
-import TableOfOrder from './Table';
-import Links from './Links';
+import TableOfOrder from './assets/Table';
+import Links from './assets/Links';
 
 function App() {
   return (
     <>
       <header id="start">
-          <img src="/src/assets/Logo.png" alt="logo" />
+          <img src="/public/Logo.png" alt="logo" />
             <h1>Сайт<br/>"ЭЭЭЭЭЭКСПЕРИМЕНТЫ"</h1>
           <nav>
               <h4>Навигация по странице</h4>
