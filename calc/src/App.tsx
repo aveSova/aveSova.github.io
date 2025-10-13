@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <header id="start">
-          <img src="/src/assets/Logo.png" alt="logo" />
+          <img src="./src/assets/Logo.png" alt="logo" />
             <h1>Сайт<br/>"ЭЭЭЭЭЭКСПЕРИМЕНТЫ"</h1>
           <nav>
               <h4>Навигация по странице</h4>
