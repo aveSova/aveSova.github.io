@@ -30,7 +30,7 @@ function App() {
     <Flex vertical gap={'small'} style={{minHeight:'100vh'}}>
       <header>
         <Row>
-          <Col span={5} offset={1}><img src='/src/assets/logo.png' /></Col>
+          <Col span={5} offset={1}><img src='/public/logo.png' /></Col>
           <Col span={6} offset={5}><h1>Магазин зарубежных товаров "Мост"</h1></Col>
         </Row>
       </header>
@@ -40,13 +40,13 @@ function App() {
         borderRadius: '10px'}}>
         <Row>
           <Col span={17} offset={1}>
-            <Card ref={ref => addCardRef(ref, 0)} imgSrc={'/src/assets/goods/Headphones.png'} name={'Наушники'} price={100}/>
-            <Card ref={ref => addCardRef(ref, 1)} imgSrc={'/src/assets/goods/VR.png'} name={'VR-гарнитура'} price={400}/>
-            <Card ref={ref => addCardRef(ref, 2)} imgSrc={'/src/assets/goods/Udon.png'} name={'Лапша'} price={10}/>
-            <Card ref={ref => addCardRef(ref, 3)} imgSrc={'/src/assets/goods/Win11.png'} name={'Цифровая лицензия Windows 11'} price={60}/>
-            <Card ref={ref => addCardRef(ref, 4)} imgSrc={'/src/assets/goods/Bubble.png'} name={'Жвачка'} price={5}/>
-            <Card ref={ref => addCardRef(ref, 5)} imgSrc={'/src/assets/goods/Toyota.png'} name={'Toyota Camry'} price={30000}/>
-            <Card ref={ref => addCardRef(ref, 6)} imgSrc={'/src/assets/goods/Марка.png'} name={'марка коллекционная'} price={250}/>
+            <Card ref={ref => addCardRef(ref, 0)} imgSrc={'/public/goods/Headphones.png'} name={'Наушники'} price={100}/>
+            <Card ref={ref => addCardRef(ref, 1)} imgSrc={'/public/goods/VR.png'} name={'VR-гарнитура'} price={400}/>
+            <Card ref={ref => addCardRef(ref, 2)} imgSrc={'/public/goods/Udon.png'} name={'Лапша'} price={10}/>
+            <Card ref={ref => addCardRef(ref, 3)} imgSrc={'/public/goods/Win11.png'} name={'Цифровая лицензия Windows 11'} price={60}/>
+            <Card ref={ref => addCardRef(ref, 4)} imgSrc={'/public/goods/Bubble.png'} name={'Жвачка'} price={5}/>
+            <Card ref={ref => addCardRef(ref, 5)} imgSrc={'/public/goods/Toyota.png'} name={'Toyota Camry'} price={30000}/>
+            <Card ref={ref => addCardRef(ref, 6)} imgSrc={'/public/goods/Марка.png'} name={'марка коллекционная'} price={250}/>
           </Col>
           <Col span={6}>
             <div>
