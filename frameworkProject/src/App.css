@@ -165,12 +165,19 @@ th{
   margin-top: 10px;
 }
 
+#links{
+  justify-content: start;
+  font-size: 4vw;
+}
+
+#links li:nth-child(2n+1){
+  background-color: #00296b;
+}
+
 #links a{
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  color: white;
-  font-size: 1vw;
 }
 
 #links a, li{

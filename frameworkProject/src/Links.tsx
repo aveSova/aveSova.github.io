@@ -1,34 +1,17 @@
 import React from 'react';
-<<<<<<< HEAD
 import { Button, Flex, Image, Typography } from 'antd';
-=======
-import { ConfigProvider, Button, Flex, Image, Typography } from 'antd';
->>>>>>> ed3966cf8b3b8d1716e7a8128720a383d87b3c9f
 import './App.css';
 
 const Links: React.FC = () => (
     <>
-        <ConfigProvider
-            theme={{
-                components: {
-                Button: {
-                    fontFamily: 'Ubuntu',
-                }
-                }
-            }}>
-        </ConfigProvider>
-        <Flex vertical justify='center'>
+        <Flex vertical>
             <Button type='text' href='http://kubsu.ru/index.html'>
                 абсолютную гиперссылку на главную страницу сайта kubsu.ru
             </Button>
             <Button type='text' href='https://kubsu.ru/index.html'>
                 абсолютную гиперссылку на главную страницу сайта kubsu.ru в протоколе https
             </Button>
-<<<<<<< HEAD
-            <Image src='./src/assets/Prikol.png' alt="лого КубГУ (ссылка)" preview={false} 
-=======
-            <Image src='/src/assets/Prikol.png' alt="лого КубГУ (ссылка)" preview={false} 
->>>>>>> ed3966cf8b3b8d1716e7a8128720a383d87b3c9f
+            <Image src='/public/Prikol.png' alt="лого КубГУ (ссылка)" preview={false} 
             style={{ cursor: 'pointer' }}
             onClick={() => window.open('/target-page', '_blank')}/>
             <Button type='text' href='https://clck.ru/3PDHiw'>
@@ -49,26 +32,19 @@ const Links: React.FC = () => (
             <Button type='text' href='/index.html'>
                 относительную на страницу в текущем каталоге
             </Button>
-            <Button type='text' href='/src/about/task.html'>
+            <Button type='text' href='/about/task.html'>
                 относительную на страницу в каталоге about
             </Button>
-            <Button type='text' href='/src/about/task12/task12.html'>
+            <Button type='text' href='/about/task12/task12.html'>
                 здесь 12-й пункт атвичяю
             </Button>
-<<<<<<< HEAD
             <Button type='text' href='/about/task12/task12.html'>
                 здесь 12-й пункт атвичяю
             </Button>
             <Typography>В этом тексте спрятана <Button type='text' href='https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png'>ссылка</Button>, найдите её :)</Typography>
             <Button type='text' href='https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5'>ссылку на фрагмент страницы стороннего сайта</Button>
             <map name="task15" style={{width: '100%', maxWidth: '300px'}}>
-                <img src="./src/assets/ForTask.png" alt="задание 15" style={{width: '100%', maxWidth: '300px'}} />
-=======
-            <Typography style={{color:'white'}}>В этом тексте спрятана <Button type='text' href='https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png' style={{width:'100px'}}>ссылка</Button>, найдите её :)</Typography>
-            <Button type='text' href='https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5'>ссылку на фрагмент страницы стороннего сайта</Button>
-            <map name="task15" style={{width: '100%', maxWidth: '300px'}}>
-                <img src="/src/assets/ForTask.png" alt="задание 15" style={{width: '100%', maxWidth: '300px'}} />
->>>>>>> ed3966cf8b3b8d1716e7a8128720a383d87b3c9f
+                <img src="/public/ForTask.png" alt="задание 15" style={{width: '100%', maxWidth: '300px'}} />
                 <area shape="circle" coords="98,115,50" 
                     href="https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/map#живой_пример" alt="круглый идиот" />
                 <area shape="rect" coords="99,245,268,344" 
