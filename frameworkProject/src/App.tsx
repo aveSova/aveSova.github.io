@@ -1,3 +1,4 @@
+
 import './App.css';
 import TableOfOrder from './assets/Table';
 import Links from './assets/Links';
@@ -6,7 +7,11 @@ function App() {
   return (
     <>
       <header id="start">
+<<<<<<< HEAD
           <img src="/public/Logo.png" alt="logo" />
+=======
+          <img src="/public/L0go.png" alt="logo" />
+>>>>>>> f3f9a0bab3a722c1dc89dd2be523bd944d912a6b
             <h1>Сайт<br/>"ЭЭЭЭЭЭКСПЕРИМЕНТЫ"</h1>
           <nav>
               <h4>Навигация по странице</h4>
@@ -118,7 +123,7 @@ function App() {
             </ol>
           </div>
 
-          <img id="meme" src="./src/assets/i.jpeg" style={{width: '100vw', height: 'auto', maxWidth: '500px'}} />
+          <img id="meme" src="/public/i.jpeg" style={{width: '100vw', height: 'auto', maxWidth: '500px'}} />
         </main>
         <footer>
           <div style={{display: 'block', textAlign: 'left', marginLeft: '2vw', marginTop: '1vw', marginBottom: '1vw'}}>

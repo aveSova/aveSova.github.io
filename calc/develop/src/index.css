@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+html{
+  height: auto;
+  background: #012A4A;
+  color: white;
+  background: linear-gradient(0deg, rgba(1, 42, 74, 1) 0%, rgba(169, 214, 229, 1) 100%);
+}
+
+body{
+  margin: 0;
+}
+
+* {
+  font-family: 'Bitter' !important;
+  color: white;
+}
