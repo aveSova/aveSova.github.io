@@ -1,13 +1,13 @@
-import { useState } from 'react'
 import './App.css'
-
+import CompCh from './assets/ComponentChanger'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      
+      <main>
+          <CompCh />
+      </main>
     </>
   )
 }
