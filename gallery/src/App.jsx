@@ -39,9 +39,9 @@ function App() {
             width: "100%",
             margin: "0 auto"
           }}>
-          <div><img  src='/public/arbuz.webp'/></div>
-          <div><img  src='/public/dynia.webp'/></div>
-          <div><img  src='/public/tykva.webp'/></div>
+          <div><img  src='/gal/public/arbuz.webp'/></div>
+          <div><img  src='/gal/public/dynia.webp'/></div>
+          <div><img  src='/gal/public/tykva.webp'/></div>
       </Carousel>
     </ConfigProvider>
     </>
