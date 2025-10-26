@@ -1,0 +1,16 @@
+img {
+    width: 20vw;
+    height: 20vw;
+}
+
+.ant-carousel .slick-prev, .ant-carousel .slick-next {
+    background: black;
+    height: 20vw;
+    width: 10vw;
+}
+
+@media (width > 768px){
+    .ant-carousel .slick-prev, .ant-carousel .slick-next {
+        width: 5vw;
+    }
+}
