@@ -35,6 +35,12 @@ function App() {
         token: {
           colorText: "#FFFF",
         },
+
+        components: {
+          Carousel: {
+            dotOffset: '-15vw',
+          }
+        }
       }}
     >
       <Carousel 
