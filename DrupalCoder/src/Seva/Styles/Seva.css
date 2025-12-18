@@ -1,0 +1,39 @@
+.burger > .ant-menu-submenu:first-child > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+  display: none;
+}
+
+.burger {
+  min-width: auto !important;
+  width: auto !important;
+}
+
+.burger > .ant-menu-submenu {
+  width: auto !important;
+  min-width: auto !important;
+}
+
+.burger > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding: 0 8px !important;
+  height: 40px !important;
+  width: auto !important;
+  min-width: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.burger > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+  margin: 0 !important;
+  font-size: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.burger > .ant-menu-submenu > .ant-menu-submenu-title .ant-menu-item-icon {
+  margin-inline-end: 0 !important;
+}
+
+header {
+    background-color: black;
+}
