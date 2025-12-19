@@ -43,10 +43,11 @@ const Header = () => {
                         
                         components: {
                             Menu: {
+                                darkItemBg: 'black',
+                                darkSubMenuItemBg: 'black',
                                 darkItemSelectedColor: '#F14D34',
                                 darkItemSelectedBg: 'none',
                                 itemBorderRadius: '0',
-                                collapsedWidth: '1vw',
                             }
                         }
                     }}>
@@ -54,8 +55,17 @@ const Header = () => {
                         <a href=''><img src={logo}/></a>
                         <Menu mode='inline' items={items} theme='dark' className='burger'/>
                     </nav>
-                    <Achievement heading={'Sosal?'} 
-                        description={'Idi nahui pidor bliat aaaaaaaaaaaaaa'} 
+                    <h1>Поддержка сайтов<br/>на Drupal</h1>
+                    <p style={{opacity: '0.8'}}>Сопровождение и поддержка сайтов<br/>на CMS Drupal любых версий и запущенности</p>
+                    <Achievement 
+                        heading={'#1'} 
+                        description={'Drupal-разработчиков России по версии Рейтинга Рунета'} 
+                        img={cup}
+                        isLarge={true}
+                    />
+                    <Achievement 
+                        heading={'#1'} 
+                        description={'Drupal-разработчиков России по версии Рейтинга Рунета'} 
                         img={cup}
                     />
                 </ConfigProvider>

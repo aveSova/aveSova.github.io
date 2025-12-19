@@ -1,3 +1,4 @@
+/* Меню (удаляем стрелку у главного меню и уменьшанем его ширину в свёрнутом состоянии) */
 .burger > .ant-menu-submenu:first-child > .ant-menu-submenu-title .ant-menu-submenu-arrow {
   display: none;
 }
@@ -35,5 +36,17 @@
 }
 
 header {
-    background-color: black;
+  display: block;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+header h1 {
+  font-size: 18px;
+}
+
+header p {
+  font-size: 12px;
 }
