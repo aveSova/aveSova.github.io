@@ -1,0 +1,12 @@
+.base {
+    background: url('../../assets/icon-bg.svg') no-repeat;
+    max-width: 120px;
+    background-position: -30px top;
+    padding-left: 30px;
+    clip-path: inset(0 0 0 -30px);
+}
+
+.description {
+    opacity: 0.8;
+    font-size: 12px;
+}

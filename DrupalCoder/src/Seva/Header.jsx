@@ -1,4 +1,4 @@
-import { ConfigProvider, Menu } from 'antd';
+import { ConfigProvider, Menu, Button } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
 import Achievement from './Mini-components/Achievement';
 import cup from '../assets/cup.png';
@@ -21,7 +21,7 @@ const items = [{
         },
         { key: 'Promo', label: 'ПРОДВИЖЕНИЕ' },
         { key: 'Adv', label: 'Реклама' },
-        { key: 'About', label: 'О НАС', 
+        { key: 'About', label: 'О НАС',
             type: 'submenu', children: [
                 { key: 'Team', label: 'КОМАНДА' },
                 { key: 'Give', label: 'DRUPALGIVE' },
@@ -33,6 +33,15 @@ const items = [{
         { key: 'Cont', label: 'КОНТАКТЫ' }
     ]
 }]
+
+const Achievements = [
+    {heading: '#1', description: 'Drupal-разработчиков России по версии Рейтинга Рунета', img: cup, isLarge: true},
+    {heading: '3+', description: 'Средний опыт специалистов более 3 лет'},
+    {heading: '14', description: 'лет опыта в сфере Drupal'},
+    {heading: '50+', description: 'модулей и тем в формате DrupalGive'},
+    {heading: '90 000+', description: 'часов поддержки сайтов на Drupal'},
+    {heading: '300+', description: 'Проектов на поддержке'}
+]
 
 const Header = () => {
     return (
@@ -48,6 +57,11 @@ const Header = () => {
                                 darkItemSelectedColor: '#F14D34',
                                 darkItemSelectedBg: 'none',
                                 itemBorderRadius: '0',
+                            },
+                            Button: {
+                                colorText: 'white',
+                                colorBorder: '#F14D34',
+                                borderRadius: '5',
                             }
                         }
                     }}>
@@ -55,19 +69,27 @@ const Header = () => {
                         <a href=''><img src={logo}/></a>
                         <Menu mode='inline' items={items} theme='dark' className='burger'/>
                     </nav>
-                    <h1>Поддержка сайтов<br/>на Drupal</h1>
-                    <p style={{opacity: '0.8'}}>Сопровождение и поддержка сайтов<br/>на CMS Drupal любых версий и запущенности</p>
-                    <Achievement 
-                        heading={'#1'} 
-                        description={'Drupal-разработчиков России по версии Рейтинга Рунета'} 
-                        img={cup}
-                        isLarge={true}
-                    />
-                    <Achievement 
-                        heading={'#1'} 
-                        description={'Drupal-разработчиков России по версии Рейтинга Рунета'} 
-                        img={cup}
-                    />
+                    <h1 className='heading'>Поддержка сайтов<br/>на Drupal</h1>
+                    <p className='subtext'>Сопровождение и поддержка сайтов<br/>на CMS Drupal любых версий и запущенности</p>
+                    <Button style={{
+                        backgroundColor: 'transparent',
+                        color: '#FFFFFF',
+                        border: '2px solid #F14D34',
+                        borderRadius: '5px',
+                        borderColor: '#F14D34',
+                        margin: '60px',
+                        marginTop: '45px',
+                        width: '50%',
+                        height: '12vw',
+                        fontSize: '12px'
+                    }}>
+                    Тарифы
+                    </Button>
+                    <div className='list'>
+                        {Achievements.map(item => (<Achievement heading={item.heading} description={item.description} 
+                            img={item.img} isLarge={item.isLarge}/>)
+                        )}
+                    </div>
                 </ConfigProvider>
             </header>
         </>
