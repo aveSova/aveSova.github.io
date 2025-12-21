@@ -23,14 +23,14 @@ const { Title, Text, Paragraph } = Typography;
 
 // Точные цвета из макета
 const COLORS = {
-  START: '#cb8c8cff', // Темно-зеленый
-  BUSINESS: '#d45b5bff', // Синий
-  VIP: '#d45b5bff', // Фиолетовый
+  START: '#F69C8F', // Темно-зеленый
+  BUSINESS: '#F14D34', // Синий
+  VIP: '#F14D34', // Фиолетовый
   BORDER: '#E0E0E0', // Светло-серый для границ
   TEXT: '#333333', // Основной текст
   TEXT_SECONDARY: '#666666', // Вторичный текст
   BACKGROUND: '#FFFFFF', // Белый фон
-  BUTTON_TEXT: '#d45b5bff', // Белый текст на кнопках
+  BUTTON_TEXT: '#F14D34', // Белый текст на кнопках
 };
 
 const customTheme = {
@@ -123,9 +123,9 @@ function Sasha() {
         maxWidth: 1200, 
         margin: '0 auto',
         minHeight: '100vh',
-       backgroundColor: '#FAFAFA', // Светло-серый фон всей страницы
-       //backgroundImage: URL("")/////////////////-------------------------------------------///////////////////////////////
-        
+        backgroundColor: '#FAFAFA', // Светло-серый фон всей страницы
+        backgroundImage: `url(${logoF})`,
+        backgroundPosition: 'right top'
       }}>
         
         {/* Основной заголовок */}
