@@ -1,4 +1,3 @@
-import dl from '../assets/drupal-logo.svg';
 import laptop from '../assets/laptop.png'
 import Achievement_copy from './Mini-components/Achievement_copy';
 import './Styles/Seva.css'

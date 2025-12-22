@@ -64,7 +64,7 @@ const customTheme = {
     },
     Divider: {
       colorSplit: COLORS.BORDER,
-    }
+    },
   },
 };
 
@@ -135,7 +135,6 @@ function Sasha() {
       {/*блок тарифа*-------------------------------------------------------------------------------------------------------------------------*/}
       <div className='repeater' style={{ 
         padding: '40px 20px', 
-        maxWidth: 1200, 
         margin: '0 auto',
         minHeight: '100vh',
        backgroundImage: `url(${logoF})`,
@@ -202,8 +201,6 @@ function Sasha() {
                 <div style={{ 
                   padding: '32px 24px',
                   backgroundColor: 'rgba(255, 255, 255, 1)',
-                  borderBottom:`2px solid ${COLORS.BORDER}`,
-                  borderRadius:20,
                   textAlign: 'left',
                   position: 'relative',
                 }}>
@@ -216,8 +213,7 @@ function Sasha() {
                   }}>
                     {tariff.name}
                   </Title>
-                  
-                  
+                  <Divider />
                 </div>
                 
                 {/* Список возможностей */}
