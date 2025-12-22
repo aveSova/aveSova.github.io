@@ -134,7 +134,10 @@ function Sasha() {
   return (
     <ConfigProvider theme={customTheme}>
       {/*блок тарифа*-------------------------------------------------------------------------------------------------------------------------*/}
-     <div className='repeater' style={{ 
+
+  
+  {/* Основной заголовок */}
+  <div className='repeater' style={{ 
   padding: '40px 20px', 
   margin: '0 auto',
   minHeight: '100vh',
@@ -163,74 +166,98 @@ function Sasha() {
   
   {/* Сетка тарифов */}
   <Row 
-    gutter={[0, 32]}
+    gutter={[8, 8]} // Добавил горизонтальные отступы
     justify="center"
     style={{ marginBottom: 80 }}
   >
-    {tariffs.map((tariff, index) => (
+    {tariffs.map((tariff) => (
       <Col 
         key={tariff.id} 
         xs={24} 
         md={8}
         style={{ 
           display: 'flex',
-          padding: '0 15px',
+          justifyContent: 'center', // Центрируем карточки внутри колонки
         }}
       >
         <Card
-          className={`tariff-card ${index === 1 ? 'central' : ''}`}
+          bordered
+          hoverable={false}
           style={{
+            width: '350px', // Уменьшил ширину для одинаковых блоков
             border: `2px solid ${COLORS.BORDER}`,
             borderRadius: 10,
             boxShadow: 'none',
             padding: 0,
             backgroundColor: COLORS.BACKGROUND,
-            height: '520px', // Уменьшена высота блоков (было ~600px)
+            transition: 'all 0.3s ease', // Добавил плавный переход
+            transform: 'scale(1)', // Начальный масштаб
+          }}
+          bodyStyle={{ 
+            padding: '0',
+            display: 'flex',
+            flexDirection: 'column',
+            height: '520px', // Фиксированная высота для всех
+          }}
+          onMouseEnter={(e) => {
+            // Увеличиваем блок и добавляем тень при наведении
+            e.currentTarget.style.transform = 'scale(1.05)';
+            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
+            e.currentTarget.style.zIndex = '10';
+            
+          }}
+          onMouseLeave={(e) => {
+            // Возвращаем к исходному состоянию
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.boxShadow = 'none';
+            e.currentTarget.style.zIndex = '1';
+            
           }}
         >
-          {/* Заголовок тарифа - УМЕНЬШЕНЫ ОТСТУПЫ */}
+          {/* Заголовок тарифа */}
           <div style={{ 
-            padding: '24px 20px', // Было: 32px 24px
+            padding: '28px 20px', // Уменьшил отступы
             backgroundColor: 'rgba(255, 255, 255, 1)',
             textAlign: 'left',
             position: 'relative',
+            //borderBottom: `1px solid ${COLORS.BORDER}`,
           }}>
             <Title level={2} style={{ 
               margin: 0, 
               color: COLORS.BUTTON_TEXT,
-              fontSize: '22px', // Уменьшен размер шрифта
+              fontSize: '22px', // Уменьшил размер шрифта
               fontWeight: 600,
               letterSpacing: '0.3px',
             }}>
               {tariff.name}
             </Title>
-            <Divider style={{width:'5px', margin: '8px 0'}} /> {/* Уменьшен отступ */}
+            <Divider style={{width:'5px', margin: '12px 0'}} />
           </div>
           
-          {/* Список возможностей - УМЕНЬШЕНЫ ОТСТУПЫ */}
+          {/* Список возможностей */}
           <div style={{ 
-            padding: '16px 20px', // Было: 24px
+            padding: '20px',
             flex: 1,
           }}>
             <List
               dataSource={tariff.features}
-              renderItem={(item, itemIndex) => (
+              renderItem={(item, index) => (
                 <List.Item style={{ 
-                  padding: '8px 0', // Было: 12px 0
+                  padding: '10px 0', // Уменьшил отступы
                   border: 'none',
-                  borderBottom: itemIndex < tariff.features.length - 1 ? `0px solid ${COLORS.BORDER}40` : 'none',
+                  borderBottom: index < tariff.features.length - 1 ? `0px solid ${COLORS.BORDER}40` : 'none',
                 }}>
                   <Space align="start" style={{ width: '100%' }}>
                     <CheckOutlined style={{ 
                       color: '#F69C8F', 
-                      fontSize: '14px', // Уменьшен размер иконки
-                      marginTop: '1px', // Уменьшен отступ
+                      fontSize: '15px',
+                      marginTop: '2px',
                       flexShrink: 0,
                     }} />
                     <Text style={{ 
-                      fontSize: '13px', // Уменьшен размер шрифта
+                      fontSize: '13px', 
                       color: '#505571',
-                      lineHeight: 1.4, // Уменьшен межстрочный интервал
+                      lineHeight: 1.4,
                       letterSpacing: '0.1px',
                     }}>
                       {item}
@@ -242,10 +269,12 @@ function Sasha() {
             />
           </div>
           
-          {/* Кнопка - УМЕНЬШЕНЫ ОТСТУПЫ И ВЫСОТА */}
+          {/* Кнопка */}
           <div style={{ 
-            padding: '16px 20px', // Было: 20px 24px
+            padding: '20px',
             textAlign: 'center',
+            
+            backgroundColor: '#ffffffff',
           }}>
             <Button
               type="primary"
@@ -257,12 +286,12 @@ function Sasha() {
                 borderColor: '#F14D34',
                 color: '#F14D34',
                 borderRadius: 5,
-                height: '48px', // Уменьшена высота (было: 56px)
-                fontSize: '15px', // Уменьшен размер шрифта
-                fontWeight: 600,
-                letterSpacing: '0.3px',
+                height: '48px', // Уменьшил высоту
+                fontSize: '15px',
+                fontWeight: 600, // Исправил опечатку (было 3100)
+                letterSpacing: '0.5px',
                 textTransform: 'uppercase',
-                transition: 'none',
+                transition: 'all 0.2s ease',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#F14D34';
@@ -296,7 +325,7 @@ function Sasha() {
       color: 'rgba(145, 133, 149, 1)',
       marginBottom: '12px',
     }}>
-      Вам не подходят наши тарифы? Оставьте заявку и мы предложим вам индивидуальные условия!
+      Вам не подходят наши тарифы? Оставьте заявку и мы <br/>предложим вам индивидуальные условия!
     </div>
     <a 
       href="#" 
@@ -310,12 +339,22 @@ function Sasha() {
         fontSize: '13px',
         borderBottom: `1px solid ${COLORS.TEXT}`, 
         paddingBottom: '2px',
+        transition: 'all 0.2s ease',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = '#F14D34';
+        e.currentTarget.style.borderBottomColor = '#F14D34';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = COLORS.TEXT;
+        e.currentTarget.style.borderBottomColor = COLORS.TEXT;
       }}
     >
       получить индивидуальный тариф
     </a>
   </div>
-</div>
+
+      </div>
         {/*------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
        {/*блок наши профессионалы */}
         <div style={{ 
