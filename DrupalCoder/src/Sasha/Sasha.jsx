@@ -585,6 +585,299 @@ function Sasha() {
   
 }}>
 
+<<<<<<< HEAD
+         {/* ЗАГОЛОВОК БЛОКА */}
+              <div style={{ 
+                textAlign: 'center',
+                marginBottom: '48px',
+              }}>
+                <div style={{ 
+                  fontSize: '32px',
+                  fontWeight: 700,
+                  color: '#1d1d1d',
+                  marginBottom: '16px',
+                }}>
+                  Команда
+                </div>
+              </div>
+              
+              {/* СЕТКА КОМАНДЫ */}
+              <Row 
+                gutter={[12, 18]} // Отступы между карточками
+                justify="center"
+              >
+                {/* КАРТОЧКА 1*/}
+                <Col xs={24} md={12} lg={8}>
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '24px',
+                  }}>
+                    {/* ФОТОГРАФИЯ */}
+                    <div style={{
+                      width: '150px',
+                      height: '150px',
+                      backgroundColor: '#ffffffff', // Заглушка для фото
+                      margin: '0 auto 20px',
+                      overflow: 'hidden',
+                    }}>
+                       <img 
+                        src={p1}
+                        alt="Сергей Синица"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
+                    </div>
+                    
+                    {/* ИМЯ */}
+                    <div style={{ 
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: '#1d1d1d',
+                      marginBottom: '8px',
+                    }}>
+                      Сергей Синица
+                    </div>
+                    
+                    {/* ДОЛЖНОСТЬ */}
+                    <div style={{ 
+                      fontSize: '14px',
+                      color: '#565151ff',
+                      marginBottom: '12px',
+                      fontWeight: 600,
+                    }}>
+                      Руководитель отдела веб-разработки, канд. техн. наук, зам. директора
+                    </div>
+                  </div>
+                </Col>
+                
+                {/* КАРТОЧКА 2 */}
+                <Col xs={24} md={12} lg={8}>
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '24px',
+                  }}>
+                    {/* ФОТОГРАФИЯ */}
+                    <div style={{
+                      width: '150px',
+                      height: '150px',
+                      backgroundColor: '#ffffffff', // Заглушка для фото
+                      margin: '0 auto 20px',
+                      overflow: 'hidden',
+                    }}>
+                       <img 
+                        src={p2}
+                        alt="Алексей Синица"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
+                    </div>
+                    
+                    {/* ИМЯ */}
+                    <div style={{ 
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: '#1d1d1d',
+                      marginBottom: '8px',
+                    }}>
+                      Алексей Синица
+                    </div>
+                    
+                    {/* ДОЛЖНОСТЬ */}
+                    <div style={{ 
+                      fontSize: '14px',
+                      color: '#565151ff',
+                      marginBottom: '12px',
+                      fontWeight: 600,
+                    }}>
+                      Руководитель отдела поддержки сайтов
+                    </div>
+                  </div>
+                </Col>
+                
+                {/* КАРТОЧКА 3 */}
+                <Col xs={24} md={12} lg={8}>
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '24px',
+                  }}>
+                    {/* ФОТОГРАФИЯ */}
+                    <div style={{
+                      width: '150px',
+                      height: '150px',
+                      backgroundColor: '#ffffffff', // Заглушка для фото
+                      margin: '0 auto 20px',
+                      overflow: 'hidden',
+                    }}>
+                       <img 
+                        src={p3}
+                        alt="Дарья Бочкарёва"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
+                    </div>
+                    
+                    {/* ИМЯ */}
+                    <div style={{ 
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: '#1d1d1d',
+                      marginBottom: '8px',
+                    }}>
+                      Дарья Бочкарёва
+                    </div>
+                    
+                    {/* ДОЛЖНОСТЬ */}
+                    <div style={{ 
+                      fontSize: '14px',
+                      color: '#565151ff',
+                      marginBottom: '12px',
+                      fontWeight: 600,
+                    }}>
+                      Руководитель отдела продвижения, конт. рекламы и контент-поддержки сайтов
+                    </div>
+                  </div>
+                </Col>
+                
+                {/* КАРТОЧКА 4 */}
+                <Col xs={24} md={12} lg={8}>
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '24px',
+                  }}>
+                    {/* ФОТОГРАФИЯ */}
+                    <div style={{
+                      width: '150px',
+                      height: '150px',
+                      backgroundColor: '#ffffffff', // Заглушка для фото
+                      margin: '0 auto 20px',
+                      overflow: 'hidden',
+                    }}>
+                       <img 
+                        src={p4}
+                        alt="Роман Агабеков"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
+                    </div>
+                    
+                    {/* ИМЯ */}
+                    <div style={{ 
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: '#1d1d1d',
+                      marginBottom: '8px',
+                    }}>
+                      Роман Агабеков
+                    </div>
+                    
+                    {/* ДОЛЖНОСТЬ */}
+                    <div style={{ 
+                      fontSize: '14px',
+                      color: '#565151ff',
+                      marginBottom: '12px',
+                      fontWeight: 600,
+                    }}>
+                      Руководитель отдела DevOPS, директор
+                    </div>
+                  </div>
+                </Col>
+                
+                {/* КАРТОЧКА 5 */}
+                <Col xs={24} md={12} lg={8}>
+                  <div style={{
+                    textAlign: 'center',
+                    padding: '10px',
+                  }}>
+                    {/* ФОТОГРАФИЯ */}
+                    <div style={{
+                      width: '150px',
+                      height: '150px',
+                      backgroundColor: '#ffffffff', // Заглушка для фото
+                      margin: '0 auto 20px',
+                      overflow: 'hidden',
+                    }}>
+                       <img 
+                        src={p5}
+                        alt="Ирина Торкунова"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          display: 'block',
+                        }}
+                      />
+                    </div>
+                    
+                    {/* ИМЯ */}
+                    <div style={{ 
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: '#1d1d1d',
+                      marginBottom: '8px',
+                    }}>
+                      Ирина Торкунова
+                    </div>
+                    
+                    {/* ДОЛЖНОСТЬ */}
+                    <div style={{ 
+                      fontSize: '14px',
+                      color: '#565151ff',
+                      marginBottom: '12px',
+                      fontWeight: 600,
+                    }}>
+                      Менеджер по работе с клиентами
+                    </div>
+                  </div>
+                </Col>
+                
+              </Row>
+              
+              {/* КНОПКА "ВСЯ КОМАНДА" */}
+              <div style={{ 
+                textAlign: 'center',
+                marginTop: '30px',
+                
+              }}>
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert('тут ничего нет');
+                  }}
+                  style={{
+                    display: 'inline-block',
+                    fontSize: '16px',
+                    fontWeight: 600,
+                    color: '#4e4a4aff',
+                    backgroundColor: 'transparent',
+                    textDecoration: 'none',
+                    padding: '12px 40px',
+                    border: '3px solid #cebabaff',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  ВСЯ КОМАНДА
+                </button>
+              </div>
+      </div>
+=======
   {/* ЗАГОЛОВОК БЛОКА */}
   <div style={{ 
     textAlign: 'center',
@@ -934,6 +1227,7 @@ function Sasha() {
 </div>
             
       
+>>>>>>> c84036de3e9047dc714e684aa218695e977ec748
               {/*--------------------------------------------------------------------------------------------------------------------*/}
               {/* БЛОК: ПОСЛЕДНИЕ КЕЙСЫ */}
               <div style={{
@@ -961,6 +1255,375 @@ function Sasha() {
                 </div>
                 
                 {/* СЕТКА КЕЙСОВ */}
+<<<<<<< HEAD
+                <Row 
+                  gutter={[24, 24]}
+                  style={{ marginBottom: '24px' }}
+                >
+                  {/* Первая строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 1 */}
+                        <div className="case-card">
+
+                    <div className="case-item">
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #eee',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                    >
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Кейс 1');
+                        }}
+                        style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}
+                      >
+                        {/* Изображение */}
+                        <div style={{
+                          height: '200px',
+                          backgroundImage: `url(${case1})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }} />
+                        
+                        {/* Контент */}
+                        <div style={{ padding: '24px' }}>
+                          <div style={{ 
+                            fontSize: '18px',
+                            fontWeight: 600,
+                            color: '#1d1d1d',
+                            marginBottom: '12px',
+                            lineHeight: 1.4,
+                          }}>
+                            Настройка кэширования данных.<br />Апгрейд сервера. Ускорение работы сайта в 30 раз!
+                          </div>
+                          
+                          <div style={{ 
+                            fontSize: '13px',
+                            color: '#4f4141ff',
+                            marginBottom: '12px',
+                            fontWeight: 500,
+                          }}>
+                            04.05.2020
+                          </div>
+                          
+                          <div style={{ 
+                            fontSize: '14px',
+                            color: '#666666',
+                            lineHeight: 1.5,
+                          }}>
+                            Влияние скорости загрузки страниц сайта на отказы и конверсии. Кейс ускорения...
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    </div>
+                        </div>
+                      </Col>
+                      <Col xs={24} md={16}>
+                        {/* Кейс 2 */}
+                        <div className="case-card large">
+                          {/* Контент кейса 2 */}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                  
+                  {/* Вторая строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 3 */}
+                        <div className="case-card">
+                          {/* Контент кейса 3 */}
+                        </div>
+                      </Col>
+                      <Col xs={24} md={16}>
+                        {/* Кейс 4 */}
+                        <div className="case-card large">
+                          {/* Контент кейса 4 */}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                  
+                  {/* Третья строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 5 */}
+                        <div className="case-card">
+                          {/* Контент кейса 5 */}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                  
+                  {/* КЕЙС 2 */}
+                  <Col >
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #eee',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                    >
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Кейс 2');
+                        }}
+                        style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}
+                      >
+                        {/* Изображение с текстом */}
+                        <div style={{
+                          height: '400px',
+                          backgroundImage: `url(${case2})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          position: 'relative',
+                          display: 'flex',
+                          alignItems: 'flex-end',
+                        }}>
+                          <div style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            color: '#ffffff',
+                            padding: '20px',
+                            width: '100%',
+                          }}>
+                            <div style={{ 
+                              fontSize: '18px',
+                              fontWeight: 600,
+                              lineHeight: 1.4,
+                            }}>
+                              Использование отчетов Ecommerce в Яндекс.Метрике
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </Col>
+                  
+                  {/* КЕЙС 3  */}
+                  <Col >
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #eee',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                    >
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Кейс 3');
+                        }}
+                        style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}
+                      >
+                        {/* Изображение с текстом */}
+                        <div style={{
+                          height: '400px',
+                          backgroundImage: `url(${case3})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          position: 'relative',
+                          display: 'flex',
+                          alignItems: 'flex-end',
+                        }}>
+                          <div style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            color: '#ffffff',
+                            padding: '20px',
+                            width: '100%',
+                          }}>
+                            <div style={{ 
+                              fontSize: '18px',
+                              fontWeight: 600,
+                              lineHeight: 1.4,
+                            }}>
+                              Повышение конверсии страницы с формой заявки с применением AB-тестирования
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </Col>
+                  
+                  {/* КЕЙС 4 */}
+                  <Col >
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #eee',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                    >
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Кейс 4');
+                        }}
+                        style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}
+                      >
+                        {/* Изображение с текстом */}
+                        <div style={{
+                          height: '400px',
+                          backgroundImage: `url(${case4})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          position: 'relative',
+                          display: 'flex',
+                          alignItems: 'flex-end',
+                        }}>
+                          <div style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                            color: '#ffffff',
+                            padding: '20px',
+                            width: '100%',
+                          }}>
+                            <div style={{ 
+                              fontSize: '18px',
+                              fontWeight: 600,
+                              lineHeight: 1.4,
+                            }}>
+                              Drupal 7: ускорение времени генерации страниц интернет-магазина на 32%
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </Col>
+                  
+                  {/* КЕЙС 5 */}
+                  <Col >
+                    <div style={{
+                      backgroundColor: '#ffffff',
+                      border: '1px solid #eee',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      transition: 'all 0.3s ease',
+                      cursor: 'pointer',
+                      height: '100%',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-5px)';
+                      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                    >
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert('Кейс 5');
+                        }}
+                        style={{ textDecoration: 'none', color: 'inherit', display: 'block', height: '100%' }}
+                      >
+                        {/* Изображение */}
+                        <div style={{
+                          height: '200px',
+                          backgroundImage: `url(${case5})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                        }} />
+                        
+                        {/* Контент */}
+                        <div style={{ padding: '24px' }}>
+                          <div style={{ 
+                            fontSize: '18px',
+                            fontWeight: 600,
+                            color: '#1d1d1d',
+                            marginBottom: '12px',
+                            lineHeight: 1.4,
+                          }}>
+                            Обмен товарами и заказами интернет-магазинов на Drupal 7 с 1С: Предприятие, МойСклад, Класс365
+                          </div>
+                          
+                          <div style={{ 
+                            fontSize: '13px',
+                            color: '#4f4141ff',
+                            marginBottom: '12px',
+                            fontWeight: 500,
+                          }}>
+                            22.08.2019
+                          </div>
+                          
+                          <div style={{ 
+                            fontSize: '14px',
+                            color: '#666666',
+                            lineHeight: 1.5,
+                          }}>
+                            Опубликован{' '}
+                            <span style={{ color: '#5b75d4ff', fontWeight: 500 }}>
+                              релиз модуля...
+                            </span>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                  </Col>
+                  </div>
+              </ConfigProvider>
+=======
 {/* Используем CSS Grid для сложной компоновки */}
 {/* Используем CSS Grid с явными размерами строк */}
 {/* ОБЕРТКА ДЛЯ ВСЕХ КЕЙСОВ С МЕДИА-ЗАПРОСАМИ */}
@@ -1456,6 +2119,7 @@ function Sasha() {
 
 
     </ConfigProvider>
+>>>>>>> c84036de3e9047dc714e684aa218695e977ec748
   );
 }
 
