@@ -602,7 +602,6 @@
   font-weight: 700;
   color: #ffffff;
 }
-
 .support__button:disabled {
   opacity: 0.6;
 }

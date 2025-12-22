@@ -118,7 +118,7 @@ const FAQ = () => {
       <div className="faq-list">
         {faqData.map((item, index) => {
           const isActive = index === activeIndex;
-
+          
           return (
             <div
               key={index}

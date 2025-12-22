@@ -114,10 +114,6 @@ export default function SupportForm() {
     setLoading(false);
   }
 };
-
-
-
-
   return (
     <section className="support">
       <div className="support__decor">

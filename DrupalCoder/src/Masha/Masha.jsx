@@ -8,7 +8,6 @@ import SupportForm from "./components/SupportForm.jsx";
 const Masha = () => {
   return (
     <>
-      
         <ReviewsCarousel />
         <Clients />
         <FAQ/>

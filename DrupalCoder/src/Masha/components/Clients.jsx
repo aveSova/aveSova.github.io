@@ -31,7 +31,6 @@ const Row = ({ reverse = false, speed = 40 }) => (
     ))}
   </div>
 );
-
 const Clients = () => {
   return (
     <section className="clients">
