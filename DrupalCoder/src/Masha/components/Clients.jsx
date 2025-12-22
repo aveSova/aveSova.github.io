@@ -1,14 +1,22 @@
 import React from "react";
+import p1 from '../../assets/logo_0.png';
+import p2 from '../../assets/logo.png';
+import p3 from '../../assets/logo3.png';
+import p4 from '../../assets/nashagazeta_ch.png';
+import p5 from '../../assets/logo-estee.png';
+import p6 from '../../assets/logo6.png';
+import p7 from '../../assets/logo_2.png';
+import p8 from '../../lpcma_rus_v4.png';
 
 const logos = [
-    "../assets/logo_0.png",
-    "../assets/logo.pn",
-    "../assets/logo3.png",
-    "../assets/logo6.png",
-    "../assets/logo_2.png",
-    "../assets/lpcma_rus_v4.jpg",
-    "../assets/nashagazeta_ch.png",
-    "../assets/logo-estee.png",
+    p1,
+    p2,
+    p3,
+    p6,
+    p7,
+    p8,
+    p4,
+    p5,
 ];
 
 const Row = ({ reverse = false, speed = 40 }) => (
