@@ -14,6 +14,9 @@ import case3 from '../assets/case3.jpg';
 import case4 from '../assets/case4.jpg';
 import case5 from '../assets/case5.png';
 import React from 'react';
+
+import './style.css';
+
 import { 
   Card, 
   Row, 
@@ -37,21 +40,18 @@ const { Title, Text, Paragraph } = Typography;
 
 // Точные цвета из макета
 const COLORS = {
-  START: '#d45b5bff', // Темно-зеленый
-  BUSINESS: '#d45b5bff', // Синий
-  VIP: '#d45b5bff', // Фиолетовый
-  BORDER: '#E0E0E0', // Светло-серый для границ
+  ORANGE: '#F14D34',
+  BORDER: '#E6E6E6',
   TEXT: '#333333', // Основной текст
   TEXT_SECONDARY: '#666666', // Вторичный текст
   BACKGROUND: '#FFFFFF', // Белый фон
-  BUTTON_TEXT: '#d45b5bff', // Белый текст на кнопках
+  BUTTON_TEXT: '#F14D34',
 };
 
 const customTheme = {
   token: {
-    colorPrimary: COLORS.BUSINESS,
+    colorPrimary: COLORS.ORANGE,
     borderRadius: 5, // Прямые углы как в макете
-    fontFamily: 'Arial, sans-serif',
   },
   components: {
     Card: {
@@ -74,7 +74,7 @@ const tariffs = [
     id: 1,
     name: 'Стартовый',
     
-    color: COLORS.START,
+    color: '#F69C8F',
     features: [
       'Консультации и работы по SEO',
       'Услуги дизайнера',
@@ -88,7 +88,7 @@ const tariffs = [
     id: 2,
     name: 'Бизнес',
     
-    color: COLORS.BUSINESS,
+    color: '#F69C8F',
     features: [
       'Консультации и работы по SEO',
       'Услуги дизайнера',
@@ -102,7 +102,7 @@ const tariffs = [
   {
     id: 3,
     name: 'VIP',
-    color: COLORS.VIP,
+    color: '#F69C8F',
     features: [
       'Консультации и работы по SEO',
       'Услуги дизайнера',
@@ -133,12 +133,11 @@ function Sasha() {
   return (
     <ConfigProvider theme={customTheme}>
       {/*блок тарифа*-------------------------------------------------------------------------------------------------------------------------*/}
-      <div style={{ 
+      <div className='repeater' style={{ 
         padding: '40px 20px', 
         maxWidth: 1200, 
         margin: '0 auto',
         minHeight: '100vh',
-        backgroundColor: '#f3f3f3ff', // Светло-серый фон всей страницы
        backgroundImage: `url(${logoF})`,
        backgroundPosition: 'right top',
         
@@ -159,7 +158,7 @@ function Sasha() {
           <div style={{ 
             width: '0px', 
             height: '0px', 
-            backgroundColor: COLORS.BUSINESS,
+            backgroundColor: COLORS.ORANGE,
             margin: '0 auto 24px',
           }} />
         
@@ -235,7 +234,7 @@ function Sasha() {
                         borderBottom: index < tariff.features.length - 1 ? `0px solid ${COLORS.BORDER}40` : 'none',
                         
                       }}>
-                        <Space align="start" style={{ width: '100%' }}>
+                        <Space align="ORANGE" style={{ width: '100%' }}>
                           <CheckOutlined style={{ 
                             color: tariff.color, 
                             fontSize: '16px',
@@ -269,8 +268,8 @@ function Sasha() {
                     onClick={handleTariffClick(tariff.name)}
                     style={{
                       backgroundColor: 'rgba(255, 255, 255, 1)',
-                      borderColor: '#d45b5bff',
-                      color: '#d45b5bff',
+                      borderColor: '#F14D34',
+                      color: '#F14D34',
                       borderRadius: 5,
                       height: '56px',
                       fontSize: '16px',
