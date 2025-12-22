@@ -105,10 +105,10 @@ const faqData = [
 ];
 
 const FAQ = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggle = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
+  setActiveIndex(index);;
   };
 
   return (
@@ -131,9 +131,9 @@ const FAQ = () => {
                 {item.question}
               </div>
 
-              {isActive && (
-                <div className="faq-answer">{item.answer}</div>
-              )}
+              <div className={`faq-answer ${isActive ? "open" : ""}`}>
+                {item.answer}
+              </div>
             </div>
           );
         })}

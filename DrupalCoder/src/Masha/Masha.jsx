@@ -1,6 +1,5 @@
 
 import "./Masha.css";
-
 import ReviewsCarousel from "./components/ReviewsCarousel.jsx";
 import Clients from "./components/Clients.jsx";
 import FAQ from "./components/FAQ.jsx";
@@ -14,7 +13,6 @@ const Masha = () => {
         <Clients />
         <FAQ/>
         <SupportForm />
-      
     </>
   );
 };
