@@ -94,7 +94,6 @@ export default function SupportForm() {
       body: fd,
     });
 
-    // ✅ СЧИТАЕМ УСПЕХ
     setSent(true);
 
     setFormData({
