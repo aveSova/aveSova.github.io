@@ -848,8 +848,6 @@ function Sasha() {
                 </button>
               </div>
       </div>
-            
-      
               {/*--------------------------------------------------------------------------------------------------------------------*/}
               {/* БЛОК: ПОСЛЕДНИЕ КЕЙСЫ */}
               <div style={{
@@ -878,11 +876,16 @@ function Sasha() {
                 {/* СЕТКА КЕЙСОВ */}
                 <Row 
                   gutter={[24, 24]}
-                  justify="center"
+                  style={{ marginBottom: '24px' }}
                 >
-                  
-                  {/* КЕЙС 1 */}
-                  <Col xs={24} md={12} lg={8}>
+                  {/* Первая строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 1 */}
+                        <div className="case-card">
+
+                    <div className="case-item">
                     <div style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #eee',
@@ -948,10 +951,51 @@ function Sasha() {
                         </div>
                       </a>
                     </div>
+                    </div>
+                        </div>
+                      </Col>
+                      <Col xs={24} md={16}>
+                        {/* Кейс 2 */}
+                        <div className="case-card large">
+                          {/* Контент кейса 2 */}
+                        </div>
+                      </Col>
+                    </Row>
                   </Col>
                   
+                  {/* Вторая строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 3 */}
+                        <div className="case-card">
+                          {/* Контент кейса 3 */}
+                        </div>
+                      </Col>
+                      <Col xs={24} md={16}>
+                        {/* Кейс 4 */}
+                        <div className="case-card large">
+                          {/* Контент кейса 4 */}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                  
+                  {/* Третья строка */}
+                  <Col span={24}>
+                    <Row gutter={[24, 24]}>
+                      <Col xs={24} md={8}>
+                        {/* Кейс 5 */}
+                        <div className="case-card">
+                          {/* Контент кейса 5 */}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                  
                   {/* КЕЙС 2 */}
-                  <Col xs={24} md={12} lg={8}>
+                  <Col >
                     <div style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #eee',
@@ -1009,7 +1053,7 @@ function Sasha() {
                   </Col>
                   
                   {/* КЕЙС 3  */}
-                  <Col xs={24} md={12} lg={8}>
+                  <Col >
                     <div style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #eee',
@@ -1067,7 +1111,7 @@ function Sasha() {
                   </Col>
                   
                   {/* КЕЙС 4 */}
-                  <Col xs={24} md={12} lg={8}>
+                  <Col >
                     <div style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #eee',
@@ -1125,7 +1169,7 @@ function Sasha() {
                   </Col>
                   
                   {/* КЕЙС 5 */}
-                  <Col xs={24} md={12} lg={8}>
+                  <Col >
                     <div style={{
                       backgroundColor: '#ffffff',
                       border: '1px solid #eee',
@@ -1195,17 +1239,8 @@ function Sasha() {
                       </a>
                     </div>
                   </Col>
-                  
-                </Row>
-                
-                
-              </div>
-                    
-
-
-
-
-    </ConfigProvider>
+                  </div>
+              </ConfigProvider>
   );
 }
 
