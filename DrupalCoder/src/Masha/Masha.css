@@ -1,6 +1,7 @@
 /* ===== MOBILE FIRST ===== */
 
 .reviews {
+  position: relative;
   padding: 60px 16px 90px;
   background: #ffffff;
 }
@@ -10,10 +11,26 @@
   font-size: 26px;
   margin-bottom: 32px;
 }
+.reviews__quotes {
+  position: absolute;
+  z-index: 0;
+  left: 0px;
+  top: 10%;
+  transform: translateY(-50%);
+  width: 220px;
+  height: auto;
+  opacity: 0.12;
+  pointer-events: none;
+}
 
 /* slider */
 .reviews__slider {
   position: relative;
+}
+.reviews__slide,
+.reviews__content {
+  position: relative;
+  z-index: 2;
 }
 
 /* stack скрыт */
@@ -171,10 +188,19 @@
   }
 
   .reviews__slider {
-    max-width: 1040px;
+    max-width: 1200px;
     margin: 0 auto;
   }
-
+  .reviews__quotes {
+    position: absolute;
+    z-index: 0; left: -0px;
+    top: 25%;
+    transform: translateY(-33%);
+    width: 600px;
+    height: auto;
+    opacity: 0.15;
+    pointer-events: none;
+  }
   /*  stack включаем */
   .review-stack {
     display: block;
@@ -188,6 +214,7 @@
 
   .review-content {
     max-width: 620px;
+    flex-shrink: 0;
   }
 
   /* линия */
@@ -334,7 +361,7 @@
 }
 
 .faq-number {
-  color: #bfc5cf; /* светло-серый, как в макете */
+  color: #bfc5cf;
   font-weight: 600;
   margin-right: 8px;
 }
@@ -367,6 +394,9 @@
   }
 }
 .support {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
   min-height: 100vh;
   background: radial-gradient(
     120% 120% at 0% 0%,
@@ -374,11 +404,38 @@
     #0b0e18 60%,
     #06080f 100%
   );
-  padding: 80px 60px;
+  padding: 80px 60px 0px;
   font-family: Inter, sans-serif;
   color: #ffffff;
 }
+.support__decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.support_image1,
+.support_image2 {
+  position: absolute;
+  pointer-events: none; /* клики проходят сквозь */
+  opacity: 1.0;        /* ярче */
+;
+}
+/* верх — по центру */
+.support_image1 {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  height: auto;
+}
 
+/* низ — правый угол */
+.support_image2 {
+  right: 0;
+  bottom: 0;
+  width: 150px;
+}
 .support__wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -414,7 +471,7 @@
 }
 
 .support__phone {
-  font-size: 48px; /* ТОЧНО КАК ЗАГОЛОВОК */
+  font-size: 48px;
   font-weight: 600;
   line-height: 1.15;
 }
@@ -431,6 +488,8 @@
 }
 
 .support__divider {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   margin: 80px auto 32px;
   height: 1px;
@@ -524,5 +583,22 @@
   .support__title,
   .support__phone {
     font-size: 32px;
+  }
+}
+.support__wrapper,
+.support__bottom {
+  position: relative;
+  z-index: 1; /* ВЫШЕ декора */
+}
+/* desktop */
+@media (min-width: 1024px) {
+  .support_image1 {
+    width: 400px;
+    opacity: 0.45;
+  }
+
+  .support_image2 {
+    width: 600px;
+    opacity: 0.45;
   }
 }

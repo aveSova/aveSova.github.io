@@ -115,6 +115,10 @@ export default function SupportForm() {
 
   return (
     <section className="support">
+      <div className="support__decor">
+    <img src="/src/assets/D-flying.svg" alt="" className="support_image1" />
+    <img src="/src/assets/D2.svg" alt="" className="support_image2" />
+      </div>
       <div className="support__wrapper">
         {/* Левая колонка */}
         <div className="support__content">
@@ -209,10 +213,10 @@ export default function SupportForm() {
 
       <div className="support__bottom">
         <div className="support__socials">
-          <img src="/src/Masha/Files/icon1.png" alt="" className="support__icon" />
-          <img src="/src/Masha/Files/icon2.png" alt="" className="support__icon" />
-          <img src="/src/Masha/Files/icon5.png" alt="" className="support__icon" />
-          <img src="/src/Masha/Files/icon4.png" alt="" className="support__icon" />
+          <img src="/src/assets/icon1.png" alt="" className="support__icon" />
+          <img src="/src/assets/icon2.png" alt="" className="support__icon" />
+          <img src="/src/assets/icon5.png" alt="" className="support__icon" />
+          <img src="/src/assets/icon4.png" alt="" className="support__icon" />
         </div>
 
         <footer className="support__footer">
