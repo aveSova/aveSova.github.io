@@ -110,7 +110,6 @@ const FAQ = () => {
   const toggle = (index) => {
   setActiveIndex(index);;
   };
-
   return (
     <section className="faq">
       <h2 className="faq-title">FAQ</h2>
@@ -118,7 +117,7 @@ const FAQ = () => {
       <div className="faq-list">
         {faqData.map((item, index) => {
           const isActive = index === activeIndex;
-          
+
           return (
             <div
               key={index}

@@ -19,6 +19,7 @@ const logos = [
     p5,
 ];
 
+
 const Row = ({ reverse = false, speed = 40 }) => (
   <div
     className={`clients-row ${reverse ? "reverse" : ""}`}

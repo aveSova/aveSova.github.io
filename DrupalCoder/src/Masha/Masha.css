@@ -616,7 +616,6 @@
   .support {
     padding: 40px 20px;
   }
-
   .support__wrapper {
     grid-template-columns: 1fr;
     gap: 40px;

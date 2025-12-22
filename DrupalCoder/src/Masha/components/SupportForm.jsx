@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-
 import g1 from '../../assets/D-flying.svg';
 import g2 from '../../assets/D2.svg';
 import g3 from '../../assets/icon1.png';
