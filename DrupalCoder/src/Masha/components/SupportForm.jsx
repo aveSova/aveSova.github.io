@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import p1 from '../../assets/D-flying.svg';
-import p2 from '../../assets/D2.svg';
-import p3 from '../../assets/icon1.png';
-import p4 from '../../assets/icon2.png';
-import p5 from '../../assets/icon5.png';
-import p6 from '../../assets/icon4.png';
+import g1 from '../../assets/D-flying.svg';
+import g2 from '../../assets/D2.svg';
+import g3 from '../../assets/icon1.png';
+import g4 from '../../assets/icon2.png';
+import g5 from '../../assets/icon5.png';
+import g6 from '../../assets/icon4.png';
 export default function SupportForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -121,8 +121,8 @@ export default function SupportForm() {
   return (
     <section className="support">
       <div className="support__decor">
-      <img src={p1} alt="" className="support_image1" />
-      <img src={p2} alt="" className="support_image2" />
+      <img src={g1} alt="" className="support_image1" />
+      <img src={g2} alt="" className="support_image2" />
       </div>
       <div className="support__wrapper">
         {/* Левая колонка */}
@@ -218,10 +218,10 @@ export default function SupportForm() {
 
       <div className="support__bottom">
         <div className="support__socials">
-          <img src={p3} alt="" className="support__icon" />
-          <img src={p4} alt="" className="support__icon" />
-          <img src={p5} alt="" className="support__icon" />
-          <img src={p6} alt="" className="support__icon" />
+          <img src={g3} alt="" className="support__icon" />
+          <img src={g4} alt="" className="support__icon" />
+          <img src={g5} alt="" className="support__icon" />
+          <img src={g6} alt="" className="support__icon" />
         </div>
 
         <footer className="support__footer">

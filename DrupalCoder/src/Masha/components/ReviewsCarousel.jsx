@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import f1 from '../../assets/logo_0.png';
 import f2 from '../../assets/logo.png';
 import f3 from '../../assets/logo3.png';
@@ -7,7 +7,7 @@ import f4 from '../../assets/nashagazeta_ch.png';
 import f5 from '../../assets/logo-estee.png';
 import f6 from '../../assets/logo6.png';
 import f7 from '../../assets/logo_2.png';
-import f8 from '../../assets/lpcma_rus_v4.png';
+import f8 from '../../assets/lpcma_rus_v4.jpg';
 import f9 from '../../assets/Group.png';
 
 const testimonials = [

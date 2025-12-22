@@ -6,7 +6,7 @@ import p4 from '../../assets/nashagazeta_ch.png';
 import p5 from '../../assets/logo-estee.png';
 import p6 from '../../assets/logo6.png';
 import p7 from '../../assets/logo_2.png';
-import p8 from '../../lpcma_rus_v4.png';
+import p8 from '../../assets/lpcma_rus_v4.jpg';
 
 const logos = [
     p1,
