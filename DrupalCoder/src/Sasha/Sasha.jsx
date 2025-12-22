@@ -7,7 +7,7 @@ import p2 from '../assets/people2.jpg';
 import p3 from '../assets/people3.jpg';
 import p4 from '../assets/people4.jpg';
 import p5 from '../assets/people5.jpg';
-
+import logobg from '../assets/icon-bg.svg'
 import case1 from '../assets/case1.jpg';
 import case2 from '../assets/case2.jpg';
 import case3 from '../assets/case3.jpg';
@@ -43,7 +43,7 @@ const COLORS = {
   ORANGE: '#F14D34',
   BORDER: '#E6E6E6',
   TEXT: '#333333', // Основной текст
-  TEXT_SECONDARY: '#666666', // Вторичный текст
+  TEXT_SECONDARY: 'rgba(255, 255, 255, 0.8)', // Вторичный текст
   BACKGROUND: '#FFFFFF', // Белый фон
   BUTTON_TEXT: '#F14D34',
 };
@@ -339,8 +339,8 @@ function Sasha() {
         padding: '40px 20px', 
         maxWidth: 1200, 
         margin: '0 auto',
-        minHeight: '100vh',
-        backgroundColor: '#f8f5f5ff', // Светло-серый фон всей страницы
+        minHeight: '20vw',
+        backgroundColor: '#ffffffff', // Светло-серый фон всей страницы
       }}>
           {/* Заголовок блока */}
           <div style={{ 
@@ -373,7 +373,8 @@ function Sasha() {
                 textAlign: 'center',
                 height: '100%',
                 transition: 'all 0.3s ease',
-                backgroundColor: '#f8f5f5ff',
+                backgroundColor: '#ffffffff',
+                
               }}
               
               >
@@ -387,6 +388,7 @@ function Sasha() {
                   borderRadius: '12px',
                   margin: '0 auto 20px',
                   fontSize: '28px',
+                  
                 }}>
                   <img 
                     src={ico1} 
@@ -435,7 +437,7 @@ function Sasha() {
                 textAlign: 'center',
                 height: '100%',
                 transition: 'all 0.3s ease',
-                backgroundColor: '#f8f5f5ff',
+                backgroundColor: '#ffffffff',
               }}
               
               >
@@ -495,7 +497,7 @@ function Sasha() {
                 textAlign: 'center',
                 height: '100%',
                 transition: 'all 0.3s ease',
-                backgroundColor: '#f8f5f5ff',
+                backgroundColor: '#ffffffff',
               }}
             
               >
@@ -556,7 +558,7 @@ function Sasha() {
         maxWidth: 1200, 
         margin: '0 auto',
         minHeight: '100vh',
-        backgroundColor: '#f8f5f5ff', // Светло-серый фон всей страницы
+        backgroundColor: '#ffffffff', // Светло-серый фон всей страницы
       }}>
 
          {/* ЗАГОЛОВОК БЛОКА */}
@@ -589,7 +591,7 @@ function Sasha() {
                     <div style={{
                       width: '150px',
                       height: '150px',
-                      backgroundColor: '#f5f5f5', // Заглушка для фото
+                      backgroundColor: '#ffffffff', // Заглушка для фото
                       margin: '0 auto 20px',
                       overflow: 'hidden',
                     }}>
@@ -637,7 +639,7 @@ function Sasha() {
                     <div style={{
                       width: '150px',
                       height: '150px',
-                      backgroundColor: '#f5f5f5', // Заглушка для фото
+                      backgroundColor: '#ffffffff', // Заглушка для фото
                       margin: '0 auto 20px',
                       overflow: 'hidden',
                     }}>
@@ -685,7 +687,7 @@ function Sasha() {
                     <div style={{
                       width: '150px',
                       height: '150px',
-                      backgroundColor: '#f5f5f5', // Заглушка для фото
+                      backgroundColor: '#ffffffff', // Заглушка для фото
                       margin: '0 auto 20px',
                       overflow: 'hidden',
                     }}>
@@ -733,7 +735,7 @@ function Sasha() {
                     <div style={{
                       width: '150px',
                       height: '150px',
-                      backgroundColor: '#f5f5f5', // Заглушка для фото
+                      backgroundColor: '#ffffffff', // Заглушка для фото
                       margin: '0 auto 20px',
                       overflow: 'hidden',
                     }}>
@@ -781,7 +783,7 @@ function Sasha() {
                     <div style={{
                       width: '150px',
                       height: '150px',
-                      backgroundColor: '#f5f5f5', // Заглушка для фото
+                      backgroundColor: '#ffffffff', // Заглушка для фото
                       margin: '0 auto 20px',
                       overflow: 'hidden',
                     }}>
@@ -859,7 +861,7 @@ function Sasha() {
                 maxWidth: 1200, 
                 margin: '0 auto',
                 minHeight: '100vh',
-                backgroundColor: '#f8f5f5ff', // Светло-серый фон всей страницы
+                backgroundColor: '#ffffffff', // Светло-серый фон всей страницы
               }}>
                 
                 {/* ЗАГОЛОВОК БЛОКА */}

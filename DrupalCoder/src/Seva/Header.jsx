@@ -75,7 +75,7 @@ const Header = () => {
                         <a href=''><img src={logo}/></a>
                         <div className='navigator'>
                             <a href=''>ПОДДЕРЖКА DRUPAL</a>
-                            <Menu mode='inline'/>
+                            <Menu mode='inline' />
                         </div>
                     </nav>
                     <div className='bigscreen'>
