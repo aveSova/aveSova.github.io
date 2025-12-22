@@ -1,14 +1,14 @@
 import React from "react";
 
 const logos = [
-    "/src/Masha/Files/logo_0.png",
-    "/src/Masha/Files/logo.pn",
-    "/src/Masha/Files/logo3.png",
-    "/src/Masha/Files/logo6.png",
-    "/src/Masha/Files/logo_2.png",
-    "/src/Masha/Files/lpcma_rus_v4.jpg",
-    "/src/Masha/Files/nashagazeta_ch.png",
-    "/src/Masha/Files/logo-estee.png",
+    "/src/assets/logo_0.png",
+    "/src/assets/logo.pn",
+    "/src/assets/logo3.png",
+    "/src/assets/logo6.png",
+    "/src/assets/logo_2.png",
+    "/src/assets/lpcma_rus_v4.jpg",
+    "/src/assets/nashagazeta_ch.png",
+    "/src/assets/logo-estee.png",
 ];
 
 const Row = ({ reverse = false, speed = 40 }) => (
