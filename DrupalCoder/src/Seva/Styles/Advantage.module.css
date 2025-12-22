@@ -18,3 +18,11 @@ h2.heading {
 .description {
     font-size: 16px;
 }
+
+@media (width >= 1440px) {
+    .base {
+        width: 290px;
+        height: 290px;
+        padding: 30px;
+    }
+}

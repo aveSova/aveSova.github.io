@@ -68,8 +68,10 @@ const Support = () => {
             <h2 className="heading" style={{textAlign: 'center'}}>
                 Поддержка<br/>от Drupal-coder
             </h2>
-            <div className='list' style={{marginBottom: '-38vw'}}>
-                {items.map(item => (<Advantage index={item.index} heading={item.heading} description={item.description} background={item.background} />))}
+            <div className='layer'>
+                <div className='list'>
+                    {items.map(item => (<Advantage index={item.index} heading={item.heading} description={item.description} background={item.background} />))}
+                </div>
             </div>
         </>
     )

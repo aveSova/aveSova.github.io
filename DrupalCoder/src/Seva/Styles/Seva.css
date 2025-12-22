@@ -1,3 +1,48 @@
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header {
+  position: relative;
+  overflow: hidden;
+  background-color: black;
+}
+
+header > *:not(.video-background):not(.video-overlay) {
+    position: relative;
+    z-index: 2;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center, 
+      transparent 0%, 
+      rgba(0, 0, 0, 0.7) 50%
+    );
+    z-index: 1;
+}
+
+nav {
+  background-color: black;
+}
+
 .burger > .ant-menu-submenu:first-child > .ant-menu-submenu-title .ant-menu-submenu-arrow {
   display: none;
 }
@@ -73,9 +118,142 @@ header a{
 
 .exp {
   background-color: #040613;
-  padding: 0 20px 0;
+  padding: 0 20px 0 0;
+  padding-top: 38vw;
 }
-
 .exp .list {
   display: block;
+}
+
+.but {
+  margin: 60px;
+  margin-top: 45px;
+  width: 50%;
+  height: 12vw;
+  font-size: 12px;
+}
+
+.layer {
+  margin-bottom: -38vw;  
+}
+
+.laptop {
+  margin-bottom: -140px;
+}
+
+.bigger {
+  padding: 0 20px 0 5%;
+}
+
+.mobdisplay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pcdisplay {
+  display: none;
+}
+
+a:link, 
+a:visited, 
+a:hover, 
+a:active, 
+a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+    outline: none !important;
+}
+a{
+  display: inline-block;
+}
+.navigator a:hover, .navigator a:active{
+  border-bottom: 3px solid #f14d34;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+
+@media (width >= 1440px) {
+  .mobdisplay{
+    display: none;
+  }
+  .pcdisplay {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: transparent;
+  }
+
+  header {
+    padding-bottom: 60px;
+  }
+  .bigscreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+  }
+  .bigscreen div {
+    align-self: center;
+  }
+  .but {
+    height: 60px;
+    width: 220px;
+    margin-left: 0;
+  }
+  .subtext, h1.heading {
+    text-align: left;
+  }
+  .subtext {
+    font-size: 16px;
+  }
+  h1.heading {
+    font-size: 52px;
+  }
+  h2.heading {
+    font-size: 42px;
+  }
+  .lefthalf {
+    justify-content: baseline;
+  }
+
+  .bigger {
+    padding-right: 35vw;
+  }
+  .layer {
+    margin-bottom: -300px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .exp {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .exp h2 {
+    margin-bottom: 30px;
+  }
+  .exp .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-right: 4vw;
+  }
+  .wall {
+    padding-right: 10vw;
+  }
+}
+
+@media (width: 1440px) {
+  .layer {
+    padding: 0%;
+  }
+  .wall {
+    padding-right: 0;
+  }
+  .bigger {
+    padding-right: 30vw;
+  }
 }

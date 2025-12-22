@@ -47,7 +47,7 @@ const items = [
 const Services = () => {
     return (
         <>
-            <div style={{padding: '0 20px 0'}}>
+            <div className='bigger'>
                 <h2 className='heading'>13  лет совершенствуем<br/>компетенции в Drupal<br/>поддержке!</h2>
                 <p className='subtext'>Разрабатываем и оптимизируем модули, расширяем функциональность сайтов, обновляем дизайн</p>
 

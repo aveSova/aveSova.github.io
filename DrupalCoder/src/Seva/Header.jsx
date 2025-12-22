@@ -3,6 +3,7 @@ import { MenuOutlined } from '@ant-design/icons';
 import Achievement from './Mini-components/Achievement';
 import cup from '../assets/cup.png';
 import logo from '../assets/logo.svg';
+import video from '../assets/video.mp4'
 import './Styles/Seva.css';
 
 const items = [{
@@ -47,6 +48,12 @@ const Header = () => {
     return (
         <>
             <header>
+                <div className="video-background">
+                    <video autoPlay muted loop playsInline>
+                        <source src={video} type="video/mp4" />
+                    </video>
+                </div>
+                <div className="video-overlay"></div>
                 <ConfigProvider
                     theme={{
                         
@@ -58,37 +65,38 @@ const Header = () => {
                                 darkItemSelectedBg: 'none',
                                 itemBorderRadius: '0',
                             },
-                            Button: {
-                                colorText: 'white',
-                                colorBorder: '#F14D34',
-                                borderRadius: '5',
-                            }
                         }
                     }}>
-                    <nav style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <nav className='mobdisplay'>
                         <a href=''><img src={logo}/></a>
                         <Menu mode='inline' items={items} theme='dark' className='burger'/>
                     </nav>
-                    <h1 className='heading'>Поддержка сайтов<br/>на Drupal</h1>
-                    <p className='subtext'>Сопровождение и поддержка сайтов<br/>на CMS Drupal любых версий и запущенности</p>
-                    <Button style={{
-                        backgroundColor: 'transparent',
-                        color: '#FFFFFF',
-                        border: '2px solid #F14D34',
-                        borderRadius: '5px',
-                        borderColor: '#F14D34',
-                        margin: '60px',
-                        marginTop: '45px',
-                        width: '50%',
-                        height: '12vw',
-                        fontSize: '12px'
-                    }}>
-                    Тарифы
-                    </Button>
-                    <div className='list'>
-                        {Achievements.map(item => (<Achievement heading={item.heading} description={item.description} 
-                            img={item.img} isLarge={item.isLarge}/>)
-                        )}
+                    <nav className='pcdisplay'>
+                        <a href=''><img src={logo}/></a>
+                        <div className='navigator'>
+                            <a href=''>ПОДДЕРЖКА DRUPAL</a>
+                            <Menu mode='inline'/>
+                        </div>
+                    </nav>
+                    <div className='bigscreen'>
+                        <div className='lefthalf'>
+                            <h1 className='heading'>Поддержка сайтов<br/>на Drupal</h1>
+                            <p className='subtext'>Сопровождение и поддержка сайтов<br/>на CMS Drupal любых версий и запущенности</p>
+                            <Button className='but' style={{
+                                backgroundColor: 'transparent',
+                                color: '#FFFFFF',
+                                border: '2px solid #F14D34',
+                                borderRadius: '5px',
+                                borderColor: '#F14D34',
+                            }}>
+                            Тарифы
+                            </Button>
+                        </div>
+                        <div className='list'>
+                            {Achievements.map(item => (<Achievement heading={item.heading} description={item.description} 
+                                img={item.img} isLarge={item.isLarge}/>)
+                            )}
+                        </div>
                     </div>
                 </ConfigProvider>
             </header>
