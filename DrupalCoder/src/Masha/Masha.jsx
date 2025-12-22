@@ -1,11 +1,10 @@
-import React from "react";
-import "./Masha.css";
-//import { BrowserRouter } from "react-router-dom";
 
-import ReviewsCarousel from "./components/ReviewsCarousel";
-import Clients from "./components/Clients";
-import FAQ from "./components/FAQ";
-import SupportForm from "./components/SupportForm";
+import "./Masha.css";
+
+import ReviewsCarousel from "./components/ReviewsCarousel.jsx";
+import Clients from "./components/Clients.jsx";
+import FAQ from "./components/FAQ.jsx";
+import SupportForm from "./components/SupportForm.jsx";
 
 const Masha = () => {
   return (
