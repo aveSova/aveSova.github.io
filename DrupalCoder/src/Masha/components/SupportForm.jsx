@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+
+
 import g1 from '../../assets/D-flying.svg';
 import g2 from '../../assets/D2.svg';
 import g3 from '../../assets/icon1.png';
@@ -17,6 +20,9 @@ export default function SupportForm() {
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
 
   // ===== ВОССТАНОВЛЕНИЕ ИЗ LOCALSTORAGE =====
   useEffect(() => {
@@ -32,12 +38,12 @@ export default function SupportForm() {
   }, [formData]);
 
   // ===== ЧТЕНИЕ ?sent=true ИЗ URL =====
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+   useEffect(() => {
+    const params = new URLSearchParams(location.search);
     if (params.get("sent") === "true") {
       setSent(true);
     }
-  }, []);
+  }, [location.search]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,55 +75,45 @@ export default function SupportForm() {
     return true;
   };
 
-  // ===== ОТПРАВКА ФОРМЫ =====
   const handleSubmit = async () => {
-    setError("");
-    setSent(false);
+  setError("");
+  setSent(false);
 
-    if (!validateForm()) return;
+  if (!validateForm()) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+  try {
+    const fd = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      fd.append(key, value);
+    });
 
-      if (!response.ok) {
-        throw new Error("Ошибка сервера");
-      }
+    await fetch("https://formcarry.com/s/49Y0gT8YujF", {
+      method: "POST",
+      body: fd,
+    });
 
-      await response.json();
+    setSent(true);
 
-      setSent(true);
+    setFormData({
+      name: "",
+      phone: "",
+      email: "",
+      comment: "",
+    });
 
-      const url = new URL(window.location);
-      url.searchParams.set("sent", "true");
-      window.history.pushState({}, "", url);
+    setAgreed(false);
+    localStorage.removeItem("supportForm");
 
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        comment: "",
-      });
+    navigate("?sent=true", { replace: true });
 
-      setAgreed(false);
-      localStorage.removeItem("supportForm");
-    } catch (err) {
-      setError("Ошибка отправки. Пожалуйста, попробуйте ещё раз.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  } catch (err) {
+    setError("Ошибка отправки. Пожалуйста, попробуйте ещё раз.");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <section className="support">
       <div className="support__decor">
