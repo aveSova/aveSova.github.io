@@ -7,7 +7,10 @@ const Achievement_copy = ({
     return (
         <>
         <div className={styles.base}>
-            <p className={styles.description} style={{color:'white'}}>{description} <div style={{color: '#F14D34'}}>{isRed}</div> </p>
+            <div className={styles.description}>
+                <p style={{color:'white'}}>{description}</p> 
+                <p style={{color: '#F14D34'}}>{isRed}</p>
+            </div>
         </div>
         </>
     )

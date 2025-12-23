@@ -21,8 +21,8 @@ h2.heading {
 
 @media (width >= 1440px) {
     .base {
-        width: 290px;
-        height: 290px;
+        width: 230px;
+        height: 230px;
         padding: 30px;
     }
 }
