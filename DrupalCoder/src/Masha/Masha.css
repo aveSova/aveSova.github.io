@@ -314,8 +314,8 @@
 
 /* логотипы одной высоты */
 .logo-wrap {
-  height: 64px;
-  min-width: 160px;
+  height: 56px;
+  min-width: 120px;
 
   display: flex;
   align-items: center;
@@ -341,8 +341,8 @@
 /* mobile first */
 @media (max-width: 768px) {
   .logo-wrap {
-    height: 48px;
-    min-width: 120px;
+    height: 72px;
+    min-width: 150px;
   }
 
   .clients-title {
