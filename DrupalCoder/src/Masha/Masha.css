@@ -652,7 +652,7 @@
   text-decoration: none;
   .support__agree-text {
   display: inline;
-  white-space: normal; /* разрешаем перенос только по словам */
+  white-space: normal;
 }
 
 }

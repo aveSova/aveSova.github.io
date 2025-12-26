@@ -184,7 +184,7 @@ export default function SupportForm() {
               <a href="#">обработку своих персональных данных</a>
             </span>
           </label>
-
+          
           {error && <div className="support__error">{error}</div>}
 
           <button
