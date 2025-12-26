@@ -1,3 +1,6 @@
+import React, { useState } from 'react';
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logoF from '../assets/D.svg';
 import ico1 from '../assets/iconS1.svg';
 import ico2 from '../assets/iconS2.svg';
@@ -7,15 +10,13 @@ import p2 from '../assets/people2.jpg';
 import p3 from '../assets/people3.jpg';
 import p4 from '../assets/people4.jpg';
 import p5 from '../assets/people5.jpg';
-import logobg from '../assets/icon-bg.svg';
 import case1 from '../assets/case1.jpg';
 import case2 from '../assets/case2.jpg';
 import case3 from '../assets/case3.jpg';
 import case4 from '../assets/case4.jpg';
 import case5 from '../assets/case5.png';
-import React from 'react';
-
 import './style.css';
+import '../Masha/Masha.css';
 
 import {
   Card,
@@ -28,13 +29,15 @@ import {
   ConfigProvider,
   Space,
   Tag,
-  Grid
+  Grid,
+  Modal
 } from 'antd';
 import {
   CheckOutlined,
   MessageOutlined,
   PhoneOutlined,
-  MailOutlined
+  MailOutlined,
+  CloseOutlined
 } from '@ant-design/icons';
 
 const { Title, Text, Paragraph } = Typography;
@@ -64,6 +67,10 @@ const customTheme = {
     },
     Divider: {
       colorSplit: COLORS.BORDER,
+    },
+    Modal: {
+      contentBg: 'black',
+      titleColor: 'white',
     }
   },
 };
@@ -110,9 +117,118 @@ const tariffs = [
 ];
 
 function Sasha() {
-  const handleTariffClick = (tariffName) => (e) => {
+  {/*Форма*/}
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    comment: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [sent, setSent] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+
+  // Восстановление из localStorage
+  useEffect(() => {
+    const saved = localStorage.getItem("supportForm");
+    if (saved) {
+      setFormData(JSON.parse(saved));
+    }
+  }, []);
+
+  // Сохранение в localStorage
+  useEffect(() => {
+    localStorage.setItem("supportForm", JSON.stringify(formData));
+  }, [formData]);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    if (!formData.name || !formData.phone || !formData.email) {
+      setError("Пожалуйста, заполните все обязательные поля");
+      return false;
+    }
+
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Введите корректный email");
+      return false;
+    }
+
+    if (formData.phone.replace(/\D/g, "").length < 10) {
+      setError("Введите корректный номер телефона");
+      return false;
+    }
+
+    if (!agreed) {
+      setError("Необходимо согласиться на обработку персональных данных");
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async () => {
+    setError("");
+    setSent(false);
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+
+    try {
+      const fd = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        fd.append(key, value);
+      });
+
+      await fetch("https://formcarry.com/s/49Y0gT8YujF", {
+        method: "POST",
+        body: fd,
+      });
+
+      setSent(true);
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        comment: "",
+      });
+      setAgreed(false);
+      localStorage.removeItem("supportForm");
+      navigate("?sent=true", { replace: true });
+
+    } catch (err) {
+      setError("Ошибка отправки. Пожалуйста, попробуйте ещё раз.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get("sent") === "true") {
+      setSent(true);
+    }
+  }, [location.search]);
+  {/*=================================================================================================================*/}
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedTariff, setSelectedTariff] = useState(null);
+
+  const handleTariffClick = (tariff) => (e) => {
     e.preventDefault();
-    alert(`Это демо-версия. В реальном приложении здесь будет форма связи для тарифа "${tariffName}"`);
+    setSelectedTariff(tariff);
+    setModalVisible(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalVisible(false);
+    setSelectedTariff(null);
   };
 
   const handleIndividualRequest = (e) => {
@@ -127,7 +243,94 @@ function Sasha() {
 
   return (
     <ConfigProvider theme={customTheme}>
-      {/*блок тарифа*-------------------------------------------------------------------------------------------------------------------------*/}
+      <Modal
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ fontSize: '20px', fontWeight: 'bold' }}>
+              {selectedTariff ? `Свяжитесь с нами по тарифу "${selectedTariff.name}"` : 'Свяжитесь с нами'}
+            </div>
+            <Button 
+              type="text" 
+              icon={<CloseOutlined />} 
+              onClick={handleCloseModal}
+              style={{ marginLeft: 'auto', color: 'white' }}
+            />
+          </div>
+        }
+        open={modalVisible}
+        onCancel={handleCloseModal}
+        footer={null}
+        width={600}
+        centered
+        styles={{
+          body: { padding: '24px' },
+          header: { borderBottom: '1px solid #f0f0f0', padding: '16px 24px', marginBottom: 0 },
+        }}
+      >
+        <form className="support__form">
+          <input
+            className="support__input"
+            name="name"
+            placeholder="Ваше имя"
+            value={formData.name}
+            onChange={handleChange}
+          />
+
+          <input
+            className="support__input"
+            name="phone"
+            placeholder="Телефон"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+
+          <input
+            className="support__input"
+            name="email"
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={handleChange}
+          />
+
+          <textarea
+            className="support__textarea"
+            name="comment"
+            placeholder="Ваш комментарий"
+            value={formData.comment}
+            onChange={handleChange}
+          />
+
+          <label className="support__agree">
+            <input
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+            />
+            <span className="support__agree-text">
+              Отправляя заявку, я даю согласие на{" "}
+              <a href="#">обработку своих персональных данных</a>
+            </span>
+          </label>
+          
+          {error && <div className="support__error">{error}</div>}
+
+          <button
+            type="button"
+            className="support__button"
+            disabled={loading}
+            onClick={handleSubmit}
+          >
+            {loading ? "Отправка..." : "Связаться с нами!"}
+          </button>
+
+          {sent && (
+            <div className="support__success">
+              Заявка успешно отправлена.
+            </div>
+          )}
+        </form>
+      </Modal>
+
       <div
         className='repeater'
         style={{
@@ -138,7 +341,6 @@ function Sasha() {
           backgroundPosition: 'right top',
         }}
       >
-        {/* Основной заголовок */}
         <div style={{ textAlign: 'center', marginBottom: 30 }}>
           <Title
             level={1}
@@ -162,7 +364,6 @@ function Sasha() {
           />
         </div>
 
-        {/* Сетка тарифов */}
         <Row
           gutter={[8, 8]}
           justify="center"
@@ -208,7 +409,6 @@ function Sasha() {
                   e.currentTarget.style.zIndex = '1';
                 }}
               >
-                {/* Заголовок тарифа */}
                 <div
                   style={{
                     padding: '28px 20px',
@@ -232,7 +432,6 @@ function Sasha() {
                   <Divider style={{ width: '5px', margin: '12px 0' }} />
                 </div>
 
-                {/* Список возможностей */}
                 <div style={{ padding: '20px', flex: 1 }}>
                   <List
                     dataSource={tariff.features}
@@ -270,7 +469,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* Кнопка */}
                 <div
                   style={{
                     padding: '20px',
@@ -282,7 +480,7 @@ function Sasha() {
                     type="primary"
                     block
                     size="large"
-                    onClick={handleTariffClick(tariff.name)}
+                    onClick={handleTariffClick(tariff)}
                     style={{
                       backgroundColor: 'rgba(255, 255, 255, 1)',
                       borderColor: '#F14D34',
@@ -316,7 +514,6 @@ function Sasha() {
           ))}
         </Row>
 
-        {/* Блок индивидуального тарифа */}
         <div style={{ margin: '40px 0', textAlign: 'center' }}>
           <div
             style={{
@@ -355,8 +552,7 @@ function Sasha() {
           </a>
         </div>
       </div>
-      {/*------------------------------------------------------------------------------------------------------------------------------------------------------------- */}
-      {/*блок наши профессионалы */}
+
       <div
         style={{
           padding: '40px 20px',
@@ -366,7 +562,6 @@ function Sasha() {
           backgroundColor: '#ffffffff',
         }}
       >
-        {/* Заголовок блока */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div
             style={{
@@ -381,9 +576,7 @@ function Sasha() {
           </div>
         </div>
 
-        {/* Сетка услуг */}
         <Row gutter={[32, 15]} justify="center">
-          {/* Услуга 1 */}
           <Col xs={24} md={8}>
             <div
               style={{
@@ -395,7 +588,6 @@ function Sasha() {
                 backgroundColor: '#ffffffff',
               }}
             >
-              {/* Иконка */}
               <div
                 style={{
                   display: 'flex',
@@ -419,7 +611,6 @@ function Sasha() {
                 />
               </div>
 
-              {/* Время */}
               <div
                 style={{
                   fontSize: '32px',
@@ -431,7 +622,6 @@ function Sasha() {
                 от 1ч
               </div>
 
-              {/* Название услуги */}
               <div
                 style={{
                   fontSize: '14px',
@@ -446,7 +636,6 @@ function Sasha() {
             </div>
           </Col>
 
-          {/* Услуга 2 */}
           <Col xs={24} md={8}>
             <div
               style={{
@@ -458,7 +647,6 @@ function Sasha() {
                 backgroundColor: '#ffffffff',
               }}
             >
-              {/* Иконка */}
               <div
                 style={{
                   display: 'flex',
@@ -482,7 +670,6 @@ function Sasha() {
                 />
               </div>
 
-              {/* Время */}
               <div
                 style={{
                   fontSize: '32px',
@@ -494,7 +681,6 @@ function Sasha() {
                 от 20ч
               </div>
 
-              {/* Название услуги */}
               <div
                 style={{
                   fontSize: '14px',
@@ -509,7 +695,6 @@ function Sasha() {
             </div>
           </Col>
 
-          {/* Услуга 3 */}
           <Col xs={24} md={8}>
             <div
               style={{
@@ -521,7 +706,6 @@ function Sasha() {
                 backgroundColor: '#ffffffff',
               }}
             >
-              {/* Иконка */}
               <div
                 style={{
                   display: 'flex',
@@ -545,7 +729,6 @@ function Sasha() {
                 />
               </div>
 
-              {/* Время */}
               <div
                 style={{
                   fontSize: '32px',
@@ -557,7 +740,6 @@ function Sasha() {
                 от 8ч
               </div>
 
-              {/* Название услуги */}
               <div
                 style={{
                   fontSize: '14px',
@@ -574,8 +756,6 @@ function Sasha() {
         </Row>
       </div>
 
-      {/*-----------------------------------------------------------------------------------------------------------------------------------------*/}
-      {/* БЛОК: КОМАНДА */}
       <div
         style={{
           padding: '40px 20px',
@@ -586,7 +766,6 @@ function Sasha() {
           flexDirection: 'column',
         }}
       >
-        {/* ЗАГОЛОВОК БЛОКА */}
         <div style={{ textAlign: 'center', marginBottom: '48px', width: '100%' }}>
           <div
             style={{
@@ -600,7 +779,6 @@ function Sasha() {
           </div>
         </div>
 
-        {/* СЕТКА КОМАНДЫ - ОБЕРТКА ДЛЯ ЦЕНТРИРОВАНИЯ */}
         <div
           style={{
             display: 'flex',
@@ -613,7 +791,6 @@ function Sasha() {
             justify="start"
             style={{ maxWidth: '1200px' }}
           >
-            {/* КАРТОЧКА 1 */}
             <Col xs={24} md={12} lg={8} xl={6}>
               <div
                 style={{
@@ -621,9 +798,10 @@ function Sasha() {
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
+                  maxWidth: '250px',
+                  justifySelf: 'center',
                 }}
               >
-                {/* ФОТОГРАФИЯ */}
                 <div
                   style={{
                     width: '250px',
@@ -645,7 +823,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* ИМЯ */}
                 <div
                   style={{
                     fontSize: '20px',
@@ -658,7 +835,6 @@ function Sasha() {
                   Сергей Синица
                 </div>
 
-                {/* ДОЛЖНОСТЬ */}
                 <div
                   style={{
                     fontSize: '14px',
@@ -674,7 +850,6 @@ function Sasha() {
               </div>
             </Col>
 
-            {/* КАРТОЧКА 2 */}
             <Col xs={24} md={12} lg={8} xl={6}>
               <div
                 style={{
@@ -682,9 +857,10 @@ function Sasha() {
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
+                  maxWidth: '250px',
+                  justifySelf: 'center',
                 }}
               >
-                {/* ФОТОГРАФИЯ */}
                 <div
                   style={{
                     width: '250px',
@@ -706,7 +882,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* ИМЯ */}
                 <div
                   style={{
                     fontSize: '20px',
@@ -719,7 +894,6 @@ function Sasha() {
                   Алексей Синица
                 </div>
 
-                {/* ДОЛЖНОСТЬ */}
                 <div
                   style={{
                     fontSize: '14px',
@@ -735,7 +909,6 @@ function Sasha() {
               </div>
             </Col>
 
-            {/* КАРТОЧКА 3 */}
             <Col xs={24} md={12} lg={8} xl={6}>
               <div
                 style={{
@@ -743,9 +916,10 @@ function Sasha() {
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
+                  maxWidth: '250px',
+                  justifySelf: 'center',
                 }}
               >
-                {/* ФОТОГРАФИЯ */}
                 <div
                   style={{
                     width: '250px',
@@ -767,7 +941,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* ИМЯ */}
                 <div
                   style={{
                     fontSize: '20px',
@@ -779,7 +952,6 @@ function Sasha() {
                   Дарья Бочкарёва
                 </div>
 
-                {/* ДОЛЖНОСТЬ */}
                 <div
                   style={{
                     fontSize: '14px',
@@ -795,7 +967,6 @@ function Sasha() {
               </div>
             </Col>
 
-            {/* КАРТОЧКА 4 */}
             <Col xs={24} md={12} lg={8} xl={6}>
               <div
                 style={{
@@ -803,9 +974,10 @@ function Sasha() {
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
+                  maxWidth: '250px',
+                  justifySelf: 'center',
                 }}
               >
-                {/* ФОТОГРАФИЯ */}
                 <div
                   style={{
                     width: '250px',
@@ -827,7 +999,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* ИМЯ */}
                 <div
                   style={{
                     fontSize: '20px',
@@ -839,7 +1010,6 @@ function Sasha() {
                   Роман Агабеков
                 </div>
 
-                {/* ДОЛЖНОСТЬ */}
                 <div
                   style={{
                     fontSize: '14px',
@@ -855,7 +1025,6 @@ function Sasha() {
               </div>
             </Col>
 
-            {/* КАРТОЧКА 5 */}
             <Col xs={24} md={12} lg={8} xl={6}>
               <div
                 style={{
@@ -863,9 +1032,10 @@ function Sasha() {
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',
+                  maxWidth: '250px',
+                  justifySelf: 'center',
                 }}
               >
-                {/* ФОТОГРАФИЯ */}
                 <div
                   style={{
                     width: '250px',
@@ -887,7 +1057,6 @@ function Sasha() {
                   />
                 </div>
 
-                {/* ИМЯ */}
                 <div
                   style={{
                     fontSize: '20px',
@@ -899,7 +1068,6 @@ function Sasha() {
                   Ирина Торкунова
                 </div>
 
-                {/* ДОЛЖНОСТЬ */}
                 <div
                   style={{
                     fontSize: '14px',
@@ -917,7 +1085,6 @@ function Sasha() {
           </Row>
         </div>
 
-        {/* КНОПКА "ВСЯ КОМАНДА" */}
         <div style={{ textAlign: 'center', marginTop: '60px', width: '100%' }}>
           <button
             onClick={(e) => {
@@ -949,8 +1116,6 @@ function Sasha() {
         </div>
       </div>
 
-      {/*--------------------------------------------------------------------------------------------------------------------*/}
-      {/* БЛОК: ПОСЛЕДНИЕ КЕЙСЫ */}
       <div
         style={{
           padding: '40px 20px',
@@ -959,7 +1124,6 @@ function Sasha() {
           backgroundColor: '#ffffffff',
         }}
       >
-        {/* ЗАГОЛОВОК БЛОКА */}
         <div style={{ textAlign: 'center', marginBottom: '48px' }}>
           <div
             style={{
@@ -973,403 +1137,318 @@ function Sasha() {
           </div>
         </div>
 
-{/* сетка*/}
-        <div className="cases-container"  
->
+        <div className="cases-container">
+          <div className="case-1"
+            onMouseEnter={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Кейс 1');
+              }}
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                height: '100%',
+              }}
+            >
+              <div style={{
+                height: '200px',
+                backgroundImage: `url(${case1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                flexShrink: 0,
+              }} />
+              
+              <div style={{ 
+                padding: '24px',
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+              }}>
+                <div style={{ 
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  color: '#1d1d1d',
+                  marginBottom: '12px',
+                  lineHeight: 1.4,
+                }}>
+                  Настройка кэширования данных.<br />Апгрейд сервера. Ускорение работы сайта в 30 раз!
+                </div>
+                
+                <div style={{ 
+                  fontSize: '13px',
+                  color: '#4f4141ff',
+                  marginBottom: '12px',
+                  fontWeight: 500,
+                }}>
+                  04.05.2020
+                </div>
+                
+                <div style={{ 
+                  fontSize: '14px',
+                  color: '#666666',
+                  lineHeight: 1.5,
+                  flex: 1,
+                }}>
+                  Влияние скорости загрузки страниц сайта на конверсии...
+                </div>
+              </div>
+            </a>
+          </div>
 
-  {/* КЕЙС 1 */}
-  <div className="case-1"
-    
-  onMouseEnter={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
-    }
-  }}
-  onMouseLeave={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    }
-  }}
-  >
-    <a 
-      href="#" 
-      onClick={(e) => {
-        e.preventDefault();
-        alert('Кейс 1');
-      }}
-      style={{ 
-        textDecoration: 'none', 
-        color: 'inherit', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        height: '100%',
-        // Мобильная версия: убираем фиксированную высоту
-        '@media (max-width: 768px)': {
-          height: 'auto',
-          display: 'block'
-        }
-      }}
-    >
-      <div style={{
-        height: '200px',
-        backgroundImage: `url(${case1})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        flexShrink: 0,
-        // Мобильная версия: сохраняем высоту
-        '@media (max-width: 768px)': {
-          height: '200px',
-        }
-      }} />
-      
-      <div style={{ 
-        padding: '24px',
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        // Мобильная версия: убираем flex
-        '@media (max-width: 768px)': {
-          display: 'block',
-          flex: 'unset',
-        }
-      }}>
-        <div style={{ 
-          fontSize: '18px',
-          fontWeight: 600,
-          color: '#1d1d1d',
-          marginBottom: '12px',
-          lineHeight: 1.4,
-        }}>
-          Настройка кэширования данных.<br />Апгрейд сервера. Ускорение работы сайта в 30 раз!
-        </div>
-        
-        <div style={{ 
-          fontSize: '13px',
-          color: '#4f4141ff',
-          marginBottom: '12px',
-          fontWeight: 500,
-        }}>
-          04.05.2020
-        </div>
-        
-        <div style={{ 
-          fontSize: '14px',
-          color: '#666666',
-          lineHeight: 1.5,
-          flex: 1,
-          // Мобильная версия: убираем flex
-          '@media (max-width: 768px)': {
-            flex: 'unset',
-          }
-        }}>
-          Влияние скорости загрузки страниц сайта на конверсии...
-        </div>
-      </div>
-    </a>
-  </div>
+          <div className="case-2"
+            onMouseEnter={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Кейс 2');
+              }}
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit', 
+                display: 'block', 
+                height: '100%',
+              }}
+            >
+              <div style={{
+                height: '100%',
+                backgroundImage: `url(${case2})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'flex-end',
+              }}>
+                <div style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  color: '#ffffff',
+                  padding: '30px',
+                  width: '100%',
+                }}>
+                  <div style={{ 
+                    fontSize: '24px',
+                    fontWeight: 600,
+                    lineHeight: 1.3,
+                  }}>
+                    Использование отчетов Ecommerce в Яндекс.Метрике
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
 
-  {/* КЕЙС 2 */}
-  <div className="case-2"
-   
-  
-  onMouseEnter={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
-    }
-  }}
-  onMouseLeave={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    }
-  }}
-  >
-    <a 
-      href="#" 
-      onClick={(e) => {
-        e.preventDefault();
-        alert('Кейс 2');
-      }}
-      style={{ 
-        textDecoration: 'none', 
-        color: 'inherit', 
-        display: 'block', 
-        height: '100%',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}
-    >
-      <div style={{
-        height: '100%',
-        backgroundImage: `url(${case2})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'flex-end',
-        // Мобильная версия: сохраняем высоту
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}>
-        <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          color: '#ffffff',
-          padding: '30px',
-          width: '100%',
-          // Мобильная версия: уменьшаем padding
-          '@media (max-width: 768px)': {
-            padding: '20px',
-          }
-        }}>
-          <div style={{ 
-            fontSize: '24px',
-            fontWeight: 600,
-            lineHeight: 1.3,
-            // Мобильная версия: уменьшаем шрифт
-            '@media (max-width: 768px)': {
-              fontSize: '18px',
-            }
-          }}>
-            Использование отчетов Ecommerce в Яндекс.Метрике
+          <div className="case-3"
+            onMouseEnter={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Кейс 3');
+              }}
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit', 
+                display: 'block', 
+                height: '100%',
+              }}
+            >
+              <div style={{
+                height: '100%',
+                backgroundImage: `url(${case3})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'flex-end',
+              }}>
+                <div style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  color: '#ffffff',
+                  padding: '20px',
+                  width: '100%',
+                }}>
+                  <div style={{ 
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: 1.4,
+                  }}>
+                    Повышение конверсии страницы с формой заявки с применением AB-тестирования
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div className="case-4"
+            onMouseEnter={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Кейс 4');
+              }}
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit', 
+                display: 'block', 
+                height: '100%',
+              }}
+            >
+              <div style={{
+                height: '100%',
+                backgroundImage: `url(${case4})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'flex-end',
+              }}>
+                <div style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  color: '#ffffff',
+                  padding: '20px',
+                  width: '100%',
+                }}>
+                  <div style={{ 
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: 1.4,
+                  }}>
+                    Drupal 7: ускорение времени генерации страниц интернет-магазина на 32%
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div className="case-5"
+            onMouseEnter={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(-5px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (window.innerWidth > 768) {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }
+            }}
+          >
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                alert('Кейс 5');
+              }}
+              style={{ 
+                textDecoration: 'none', 
+                color: 'inherit', 
+                display: 'flex', 
+                flexDirection: 'column', 
+                height: '100%',
+              }}
+            >
+              <div style={{
+                height: '200px',
+                backgroundImage: `url(${case5})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                flexShrink: 0,
+              }} />
+              
+              <div style={{ 
+                padding: '24px',
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+              }}>
+                <div style={{ 
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  color: '#1d1d1d',
+                  marginBottom: '12px',
+                  lineHeight: 1.4,
+                }}>
+                  Обмен товарами и заказами интернет-магазинов на Drupal 7 с 1С: Предприятие, МойСклад, Класс365
+                </div>
+                
+                <div style={{ 
+                  fontSize: '13px',
+                  color: '#4f4141ff',
+                  marginBottom: '12px',
+                  fontWeight: 500,
+                }}>
+                  22.08.2019
+                </div>
+                
+                <div style={{ 
+                  fontSize: '14px',
+                  color: '#666666',
+                  lineHeight: 1.5,
+                  flex: 1,
+                }}>
+                  Опубликован{' '}
+                  <span style={{ color: '#5b75d4ff', fontWeight: 500 }}>
+                    релиз модуля...
+                  </span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
-      </div>
-    </a>
-  </div>
-
-  {/* ВТОРАЯ СЕТКА - ВМЕСТЕ С ПЕРВОЙ */}
-  {/* КЕЙС 3 */}
-  <div className="case-3"
-    
-  
-  onMouseEnter={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
-    }
-  }}
-  onMouseLeave={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    }
-  }}
-  >
-    <a 
-      href="#" 
-      onClick={(e) => {
-        e.preventDefault();
-        alert('Кейс 3');
-      }}
-      style={{ 
-        textDecoration: 'none', 
-        color: 'inherit', 
-        display: 'block', 
-        height: '100%',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}
-    >
-      <div style={{
-        height: '100%',
-        backgroundImage: `url(${case3})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'flex-end',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}>
-        <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          color: '#ffffff',
-          padding: '20px',
-          width: '100%',
-        }}>
-          <div style={{ 
-            fontSize: '18px',
-            fontWeight: 600,
-            lineHeight: 1.4,
-          }}>
-            Повышение конверсии страницы с формой заявки с применением AB-тестирования
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  {/* КЕЙС 4 */}
-  <div className="case-4"
-    
-  onMouseEnter={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
-    }
-  }}
-  onMouseLeave={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    }
-  }}
-  >
-    <a 
-      href="#" 
-      onClick={(e) => {
-        e.preventDefault();
-        alert('Кейс 4');
-      }}
-      style={{ 
-        textDecoration: 'none', 
-        color: 'inherit', 
-        display: 'block', 
-        height: '100%',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}
-    >
-      <div style={{
-        height: '100%',
-        backgroundImage: `url(${case4})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'flex-end',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '100%',
-        }
-      }}>
-        <div style={{
-          backgroundColor: 'rgba(0, 0, 0, 0.7)',
-          color: '#ffffff',
-          padding: '20px',
-          width: '100%',
-        }}>
-          <div style={{ 
-            fontSize: '18px',
-            fontWeight: 600,
-            lineHeight: 1.4,
-          }}>
-            Drupal 7: ускорение времени генерации страниц интернет-магазина на 32%
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  {/* КЕЙС 5 */}
-  <div className="case-5"
-    
-  onMouseEnter={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 8px 24px rgba(0,0,0,0.1)';
-    }
-  }}
-  onMouseLeave={(e) => {
-    if (window.innerWidth > 768) {
-      e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = 'none';
-    }
-  }}
-  >
-    <a 
-      href="#" 
-      onClick={(e) => {
-        e.preventDefault();
-        alert('Кейс 5');
-      }}
-      style={{ 
-        textDecoration: 'none', 
-        color: 'inherit', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        height: '100%',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: 'auto',
-          display: 'block'
-        }
-      }}
-    >
-      <div style={{
-        height: '200px',
-        backgroundImage: `url(${case5})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        flexShrink: 0,
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          height: '200px',
-        }
-      }} />
-      
-      <div style={{ 
-        padding: '24px',
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        // Мобильная версия
-        '@media (max-width: 768px)': {
-          display: 'block',
-          flex: 'unset',
-        }
-      }}>
-        <div style={{ 
-          fontSize: '18px',
-          fontWeight: 600,
-          color: '#1d1d1d',
-          marginBottom: '12px',
-          lineHeight: 1.4,
-        }}>
-          Обмен товарами и заказами интернет-магазинов на Drupal 7 с 1С: Предприятие, МойСклад, Класс365
-        </div>
-        
-        <div style={{ 
-          fontSize: '13px',
-          color: '#4f4141ff',
-          marginBottom: '12px',
-          fontWeight: 500,
-        }}>
-          22.08.2019
-        </div>
-        
-        <div style={{ 
-          fontSize: '14px',
-          color: '#666666',
-          lineHeight: 1.5,
-          flex: 1,
-          // Мобильная версия
-          '@media (max-width: 768px)': {
-            flex: 'unset',
-          }
-        }}>
-          Опубликован{' '}
-          <span style={{ color: '#5b75d4ff', fontWeight: 500 }}>
-            релиз модуля...
-          </span>
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
       </div>
     </ConfigProvider>
   );
