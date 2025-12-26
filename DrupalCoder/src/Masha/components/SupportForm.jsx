@@ -179,14 +179,9 @@ export default function SupportForm() {
               checked={agreed}
               onChange={(e) => setAgreed(e.target.checked)}
             />
-            <span>
+            <span className="support__agree-text">
               Отправляя заявку, я даю согласие на{" "}
-              <a
-                href="#"
-                style={{ color: "#a00505ff", textDecoration: "underline" }}
-              >
-                обработку своих персональных данных
-              </a>
+              <a href="#">обработку своих персональных данных</a>
             </span>
           </label>
 

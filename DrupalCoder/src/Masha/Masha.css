@@ -297,13 +297,13 @@
 .clients-marquee {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 10px;
 }
 
 /* одна строка */
 .clients-row {
   display: flex;
-  gap: 40px;
+  gap: 10px;
   width: max-content;
   animation: scroll linear infinite;
 }
@@ -312,22 +312,31 @@
   animation-direction: reverse;
 }
 
-/* логотипы одной высоты */
 .logo-wrap {
-  height: 56px;
-  min-width: 120px;
+  height: 120px;          /* БЫЛО 56px → стало больше */
+  min-width: 240px;       /* БЫЛО 120px */
+  padding: 20px;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb; /* светло-серая рамка */
+  border-radius: 0;         /* без скруглений */
+
+  padding: 16px;
+  box-sizing: border-box;
 }
 
+
 .logo-wrap img {
-  max-height: 100%;
+  max-height: 80px;
   max-width: 100%;
   object-fit: contain;
-  opacity: 0.85;
+  opacity: 0.9;
 }
+
 
 @keyframes scroll {
   from {
@@ -338,17 +347,22 @@
   }
 }
 
-/* mobile first */
-@media (max-width: 768px) {
+@media (min-width: 1020px) {
   .logo-wrap {
-    height: 88px;
-    min-width: 180px;
+    height: 150px;
+    min-width: 330px;
+    padding: 28px;
+  }
+
+  .logo-wrap img {
+    max-height: 40px;
   }
 
   .clients-title {
-    font-size: 24px;
+    font-size: 32px;
   }
 }
+
 .faq {
   padding: 48px 16px;
   max-width: 900px;
@@ -587,10 +601,68 @@
 
 .support__agree {
   display: flex;
+  align-items: flex-start;
   gap: 12px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85); 
 }
+.support__agree input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+
+  background: transparent;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-color 0.2s ease;
+}
+
+.support__agree input[type="checkbox"]:checked {
+  border-color: #ff4d2d;
+  background: transparent;
+}
+
+/* галочка */
+.support__agree input[type="checkbox"]:checked::after {
+  content: "";
+  width: 6px;
+  height: 10px;
+
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+
+  transform: rotate(45deg);
+  margin-top: -1px;
+}
+
+
+.support__agree-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  text-decoration: none;
+  .support__agree-text {
+  display: inline;
+  white-space: normal; /* разрешаем перенос только по словам */
+}
+
+}
+.support__agree .support__agree-text a {
+  display: inline;
+  color: #ff4d2d !important;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
 
 .support__button {
   margin-top: 24px;
