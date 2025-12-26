@@ -35,8 +35,33 @@
     margin: 0;
   }
 }
-/* styles.css */
+
+
+
+
 .cases-container {
+    display: block;
+    height: auto;
+    gap: 24px;
+    
+  }
+  
+  .case-1, .case-2, .case-3, .case-4, .case-5 {
+    margin-bottom: 24px;
+    
+  }
+  
+  .case-1, .case-5 {
+    height: auto;
+  }
+  
+  .case-2, .case-3, .case-4 {
+    height: 400px;
+  }
+
+/* Мобильная версия */
+@media (min-width: 768px) {
+  .cases-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
@@ -45,7 +70,7 @@
   height: 800px;
 }
 
-.case-item {
+.case-1, .case-2, .case-3, .case-4, .case-5 {
   background-color: #ffffff;
   border: 1px solid #eee;
   border-radius: 8px;
@@ -71,32 +96,11 @@
 
 .case-4 {
   grid-column: 2 / 3;
-  grid-row: 3 / 5;
+  grid-row: 3 /  5;
 }
 
 .case-5 {
   grid-column: 3 / 4;
   grid-row: 3 / 5;
 }
-
-/* Мобильная версия */
-@media (max-width: 768px) {
-  .cases-container {
-    display: block;
-    height: auto;
-  }
-  
-  .case-item {
-    margin-bottom: 24px;
-    grid-column: unset !important;
-    grid-row: unset !important;
-  }
-  
-  .case-1, .case-5 {
-    height: auto;
-  }
-  
-  .case-2, .case-3, .case-4 {
-    height: 400px;
-  }
 }
