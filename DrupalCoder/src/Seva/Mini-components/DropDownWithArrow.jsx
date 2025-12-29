@@ -3,7 +3,7 @@ import { Dropdown, ConfigProvider } from 'antd';
 import { useState } from 'react';
 import '../Styles/Seva.css'
 
-const DropdownWithArrow = ({ label, items, img }) => {
+const DropdownWithArrow = ({ label, items }) => {
     const [open, setOpen] = useState(false);
     
     return (
@@ -28,7 +28,7 @@ const DropdownWithArrow = ({ label, items, img }) => {
         >
             <Dropdown 
                 menu={{ items }}
-                placement="bottom"
+                placement='top'
                 trigger={['hover']}
                 onOpenChange={setOpen}
             >
@@ -40,7 +40,7 @@ const DropdownWithArrow = ({ label, items, img }) => {
                         gap: '5px',
                     }}
                 >
-                    <span style={{pointerEvents: 'none', color: 'rgba(255, 255, 255, 0.8)'}}>{label}</span>
+                    <span className='aa' style={{pointerEvents: 'none', color: 'rgba(255, 255, 255, 0.8)'}}>{label}</span>
                     <div style={{
                         transition: 'transform 0.3s ease',
                         transform: open ? 'rotate(180deg)' : 'rotate(0deg)',

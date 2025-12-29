@@ -21,6 +21,7 @@ const Expertise = () => {
                     </div>
                 </div>
             </div>
+            
         </>
     )
 }

@@ -30,6 +30,9 @@ const items = [
         img: c4, 
         description: 'Любые доработки функционала и дизайна'
     },
+]
+
+const items2 = [
     {
         key: 5,
         img: c5, 
@@ -55,14 +58,17 @@ const items = [
 const Services = () => {
     return (
         <>
-            <div className='bigger'>
-                <div style={{maxWidth: '50%'}}>
+            <div className='service'>
+                <div className='bigger'>
                     <h2 className='heading'>13 лет совершенствуем компетенции в Drupal поддержке!</h2>
                     <p className='subtext'>Разрабатываем и оптимизируем модули, расширяем функциональность сайтов, обновляем дизайн</p>
                 </div>
 
                 <div className='list'>
                     {items.map(item => (<Service key={item.key} img={item.img} description={item.description} />))}
+                </div>
+                <div className='list'>
+                    {items2.map(item => (<Service key={item.key} img={item.img} description={item.description} />))}
                 </div>
             </div>
         </>
