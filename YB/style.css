@@ -190,7 +190,7 @@ article{
 /*  footer  */
 
 footer{
-    display: flex;
+    display: block;
     background-color: rgb(233, 233, 233);
     color:#777777;
     padding-top: 50px;
@@ -218,7 +218,8 @@ footer{
 }
 
 .footerP{
-    margin-left: 30px;
+    display: flex;
+    justify-self: end;
 }
 
 .fields:active {
