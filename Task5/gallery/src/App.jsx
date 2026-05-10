@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   const images = [
-    { src: '/assets/arbuz.webp', alt: 'Арбуз' },
+    { src: './assets/arbuz.webp', alt: 'Арбуз' },
     { src: './assets/dynia.webp', alt: 'Тыква' },
     { src: './assets/tykva.webp', alt: 'Дыня' },
     { src: './assets/granat.webp' , alt: 'Гранат' },
