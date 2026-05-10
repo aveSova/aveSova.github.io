@@ -3,18 +3,7 @@ import { ConfigProvider, Table } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
-interface DataType {
-  num: React.Key;
-  type: string;
-  size: string;
-  reference: string;
-  paycheck: number;
-  deadline: string;
-  hurry: string;
-  status: string;
-}
-
-const data: DataType[] = [
+const data = [
   {
     num: '1',
     type: 'UE project',
@@ -57,7 +46,7 @@ const data: DataType[] = [
   }
 ]
 
-const TableOfOrder: React.FC = () => (
+const TableOfOrder = () => (
   <>
     <ConfigProvider
       theme={{
@@ -71,7 +60,7 @@ const TableOfOrder: React.FC = () => (
         },
       }}
     >
-    <Table<DataType> dataSource={data} pagination={false}  rowClassName={(index, i) => {
+    <Table dataSource={data} pagination={false}  rowClassName={(index, i) => {
         if (index === undefined) return '';
         return i % 2 === 0 ? 'even-row' : '';}}
         onRow={() => ({

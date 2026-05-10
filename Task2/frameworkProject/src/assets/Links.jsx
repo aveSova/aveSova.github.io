@@ -1,8 +1,8 @@
 import React from 'react';
 import { ConfigProvider, Button, Flex, Image, Typography } from 'antd';
+import './App.css'
 
-
-const Links: React.FC = () => (
+const Links = () => (
     <>
         <ConfigProvider
             theme={{

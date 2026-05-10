@@ -1,20 +1,10 @@
 import React from 'react';
 import { ConfigProvider, Table } from 'antd';
+import './App.css'
 
 const { Column, ColumnGroup } = Table;
 
-interface DataType {
-  num: React.Key;
-  type: string;
-  size: string;
-  reference: string;
-  paycheck: number;
-  deadline: string;
-  hurry: string;
-  status: string;
-}
-
-const data: DataType[] = [
+const data = [
   {
     num: '1',
     type: 'UE project',
@@ -57,7 +47,7 @@ const data: DataType[] = [
   }
 ]
 
-const TableOfOrder: React.FC = () => (
+const TableOfOrder = () => (
   <>
     <ConfigProvider
       theme={{
@@ -71,7 +61,7 @@ const TableOfOrder: React.FC = () => (
         },
       }}
     >
-    <Table<DataType> dataSource={data} pagination={false}  >
+    <Table dataSource={data} pagination={false}  >
       <ColumnGroup title="Основное по заказу">
         <Column title="Тип" dataIndex="type" key="type" />
         <Column title="Размер (по наитию)" dataIndex="size" key="size" />
