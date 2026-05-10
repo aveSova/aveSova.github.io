@@ -1,0 +1,70 @@
+html {
+    margin: 0;
+    background-color: #CCCDC7;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a, a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.KodlandBlock, .SynergyBlock, .KubSUBlock {
+    padding: 10px;
+    margin: 2vw;
+}
+
+.KodlandBlock .logo, .SynergyBlock .logo, .KubSUBlock .logo {
+    width: 100px;
+    height: 100px;
+}
+
+.KubSUCard {
+    margin: 10px;
+}
+
+.KodlandCard, .SynergyCard, .KubSUCard:first-child {
+    margin-left: 110px;
+}
+
+.KodlandBlock {
+    background-color: #4b5882;
+}
+
+.SynergyBlock {
+    background-color: #333333;
+}
+
+.KubSUBlock {
+    background-color: #003265;
+}
+
+.preview {
+    width: 320px;
+    height: 180px;
+}
+
+.previewVert {
+    height: 320px;
+    width: 180px;
+}
+
+.list {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .list {
+        display: block;
+    }
+    .KodlandCard, .SynergyCard, .KubSUCard:first-child {
+        margin-left: 10px;
+    }
+}

@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My project</title>
+    <title>My projects</title>
 </head>
 <body>
     <ul>
-        <li><a href="/YB/index.html">Выпускной проект с онлайн-курса "Kodland"</a></li>
-        <li><a href="/BM/index.html">Первый проект, сделанный на бесплатных курсах "Синергии"</a></li>
-        <li><a href="/Task1/index.html">Проект 1</a></li>
-        <li><a href="/Task2/index.html">Проект 2</a></li>
-        <li><a href="/Task3/index.html">Проект 3</a></li>
-        <li><a href="/Task4/index.html">Проект 4</a></li>
-        <li><a href="/Task5/index.html">Проект 5</a></li>
-        <li><a href="/DC/index.html">Групповой проект 
-            (я отвечал здесь за все блоки до "Экспертиза в Drupal, опыт 14 лет!" 
-            и помогал с блоками до "последние кейсы")
-        </a></li>
+        <div class="KodlandBlock">
+            <img class="logo" src="Kodland.png">
+            <li class="KodlandCard"><a href="/YB/index.html" title="мой выпускной проект курса по веб-разработке онлайн-школы Kodland"><img class="preview" src="YourBlog.png"></a></li>
+        </div>
+        <div class="SynergyBlock">
+            <img class="logo" src="Synergy.png">
+            <li class="SynergyCard"><a href="/BM/index.html" title="Проект, сделанный во время обучения по программе бесплатного обучения в университете Синергия"><img class="preview" src="BlackMesa.png"></a></li>
+        </div>
+        <div class="KubSUBlock">
+            <img class="logo" src="KubSU.webp">
+            <div class="list">
+                <li class="KubSUCard"><a href="/Task1/index.html" title="Первый учебный проект, где нас знакомили с HTML тегами"><img class="previewVert" src="Project1.png"></a></li>
+                <li class="KubSUCard"><a href="/Task2/index.html" title="Первый учебный проект, перенесённый на React (первое знакомство с ним)"><img class="previewVert" src="Project1.png"></a></li>
+                <li class="KubSUCard"><a href="/Task3/index.html" title="Практика работы с JS (при нажатии кнопки 'рассчитать' выводится итоговая стоимость 'покупки')"><img class="previewVert" src="Project3.png"></a></li>
+                <li class="KubSUCard"><a href="/Task4/index.html" title="Практика работы с JS (стоимость 'услуги' рассчитывается в реальном времени)"><img class="previewVert" src="Project4.png"></a></li>
+                <li class="KubSUCard"><a href="/Task5/index.html" title="Была задача сделать галерею из картинок (здесь использовался компонент Carousel из Ant-Design)"><img class="previewVert" src="Project5.png"></a></li>
+                <li class="KubSUCard"><a href="/DC/index.html" title="Групповой проект, с которым я и наша команда из 3-х человек закрыла зачёт (конкретно я отвечал за блоки до 'Экспертиза в Drupal, опыт 14 лет!' включительно и, кроме того, активно помогал отлаживать и поправлять блоки до 'Последние кейсы' включительно)"><img class="previewVert" src="DrupalCoder.png"></a></li>
+            </div>
+        </div>
     </ul>
 </body>
 </html>
