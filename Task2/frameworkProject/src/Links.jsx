@@ -38,10 +38,7 @@ const Links = () => (
             <Button type='text' href='/about/task12/task12.html'>
                 здесь 12-й пункт атвичяю
             </Button>
-            <Button type='text' href='/about/task12/task12.html'>
-                здесь 12-й пункт атвичяю
-            </Button>
-            <Typography>В этом тексте спрятана <Button type='text' href='https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png'>ссылка</Button>, найдите её :)</Typography>
+            <Typography>В этом тексте спрятана <Button type='text' href='https://png.klev.club/uploads/posts/2024-05/png-klev-club-0bci-p-molodets-png-27.png'> ссылка</Button>, найдите её :)</Typography>
             <Button type='text' href='https://skillbox.ru/media/code/teg-a-v-html-kak-delat-ssylki-na-stranicy-fayly-i-razdely/#stk-5'>ссылку на фрагмент страницы стороннего сайта</Button>
             <map name="task15" style={{width: '100%', maxWidth: '300px'}}>
                 <img src="/Task2/assets/ForTask.png" alt="задание 15" style={{width: '100%', maxWidth: '300px'}} />

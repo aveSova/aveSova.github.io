@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+html {
+  width: 100%;
+}
+
 body{
   margin: 0;
   font-family: "Ubuntu";
@@ -91,7 +95,7 @@ main{
 a{
   justify-content: center;
   text-decoration: none;
-  color: white;
+  color: white !important;
 }
 
 ol{
@@ -166,12 +170,12 @@ th{
 }
 
 #links{
-  justify-content: start;
+  justify-content: center;
   font-size: 4vw;
 }
 
-#links li:nth-child(2n+1){
-  background-color: #00296b;
+#links a:nth-child(2n+1), .ant-image:nth-child(2n+1){
+  background-color: #00296b !important;
 }
 
 #links a{
@@ -191,13 +195,38 @@ th{
   padding-bottom: 4px;
 }
 
-#links a:hover, footer a:hover{
-  background-color: white;
-  color: #00296b;
+#links a:hover, footer a:hover, #links a:nth-child(2n+1):hover, .ant-image:nth-child(2n+1):hover{
+  background-color: white !important;
+  color: #00296b !important;
 }
 
 #links .image{
   height: auto;
+}
+
+#links article {
+  color: white;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  height: 8vw;
+}
+
+#links article a:first-child{
+  background-color: #00509d !important;
+  width: auto;
+  height: auto;
+  margin-left: 0.5vw;
+}
+
+#links article a:first-child:hover{
+  background-color: #00296b !important;
+  color: white !important;
+}
+
+#links button {
+  color: white;
+  align-self: center;
 }
 
 #tab{
